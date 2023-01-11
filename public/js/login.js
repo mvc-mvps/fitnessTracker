@@ -20,15 +20,16 @@ const loginFormHandler = async (event) => {
 };
 
 const signupFormHandler = async (event) => {
+
   event.preventDefault();
 
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (username && email && password) {
-    const response = await fetch('/api/userRoutes', {
+  if (username && password) {
+    const response = await fetch('/api/user/signup', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -36,13 +37,14 @@ const signupFormHandler = async (event) => {
       document.location.replace('/');
     } else {
       alert('Failed to sign up.');
+      console.log('no dice');
     }
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+// document
+//   .querySelector('.login-form')
+//   .addEventListener('submit', loginFormHandler);
 
 document
   .querySelector('.signup-form')
