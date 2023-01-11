@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
   }
 });
 // route to create new user
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const userInput = await User.create(req.body);
 
