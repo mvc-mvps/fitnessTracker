@@ -32,6 +32,21 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+// route to create new user
+router.post('/', async (req, res) => {
+  try {
+    const userInput = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userInput.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userInput);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

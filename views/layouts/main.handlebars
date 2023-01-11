@@ -10,25 +10,38 @@
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
+    <nav>
+       <a href="/homepage">
+      <button class="btn" id="homepage-btn">homepage</button>
+      </a>
+     
+    </nav>
     <h1>
       Fitness Tracker App
     </h1>
-    {{#if logged_in}}
+    {{!-- {{#if logged_in}}
     <nav>
+      <a href="/">
       <button class="btn" id="logout">logout</button>
+      </a>
+    {{else}}
+      <a href="/login">
+      <button class="btn" id="login">login</button>
+      </a>
     </nav>
-    {{/if}}
+    {{/if}} --}}
+ 
   </header>
   <main class="container container-fluid mt-5">
-    {{{ body }}}
+    {{{ body }}}   
   </main>
   <footer>
       
   </footer>
-
+{{!-- 
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
+  {{/if}} --}}
 </body>
 
 </html>
