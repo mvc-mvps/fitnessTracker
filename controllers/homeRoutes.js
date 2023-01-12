@@ -34,14 +34,18 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-
   res.render('signup');
 });
 
 router.get('/homepage', (req, res) => {
-
   res.render('homepage');
 });
 
+router.get('/nutrition', (req, res) => {
+  res.render('nutrition');
+});
 
+router.get('/exercise', (req, res) => {
+  res.render('exercise');
+});
 module.exports = router;
