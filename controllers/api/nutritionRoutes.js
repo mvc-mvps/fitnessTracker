@@ -1,6 +1,6 @@
 //do the fetch from the API in the nutrition routes controller page
 
-// const router = require('express').Router();
+const router = require('express').Router();
 // const { Nutrition } = require('../../models');
 
 
@@ -27,3 +27,5 @@ const foodSearch = () => {
         }));
 
 };
+
+module.exports = router;

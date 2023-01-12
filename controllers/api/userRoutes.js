@@ -48,16 +48,57 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-      return res.redirect('/login');
+// router.post('/logout', (req, res) => {
+//   if (req.session.logged_in) {
+//     req.session.destroy(() => {
+//       res.status(200).end();
+//       return res.redirect('/signup');
+//     });
+//   } else {
+//     res.status(404).end();
+//     console.log('not quite');
+//   }
+// });
+
+// router.get('/logout', function(req, res) {
+//   req.session.destroy(function(err){
+//      if(err){
+//         console.log(err);
+//      }else{
+//          console.log(session.username);
+//          req.end();
+//          res.redirect('/signup');
+//      }
+//   });
+
+// });
+
+// router.get("/logout", (req, res) => {
+//   req.session.destroy((err) => {
+//     if (err) {
+//       return console.log(err);
+//     }
+//     res.send("logged out");
+//     console.log("logged out");
+//     res.redirect('/');
+//   });
+// });
+
+// DELETE /api/auth/logout
+router.delete('/logout', (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        res.status(400).send('Unable to log out')
+      } else {
+        res.send('Logout successful')
+      }
     });
   } else {
-    res.status(404).end();
-    console.log('not quite');
+    res.end()
   }
 });
+
+
 
 module.exports = router;
