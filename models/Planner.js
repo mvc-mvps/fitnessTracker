@@ -15,6 +15,14 @@ Planner.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
+        //goal for minutes/time or number of reps    
+        exercisegoal: {
+            type: DataTypes.INTEGER,
+        },
+        //completed minutes/time or number of reps    
+        exercisecompleted: {
+            type: DataTypes.INTEGER,
+        },
         exercise_id: {
             type: DataTypes.INTEGER,
             references: {

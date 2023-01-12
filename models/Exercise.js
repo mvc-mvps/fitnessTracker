@@ -15,14 +15,6 @@ Exercise.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-//goal for minutes/time or number of reps    
-    goal: {
-        type: DataTypes.INTEGER,
-    },
-//completed minutes/time or number of reps    
-    completed: {
-        type: DataTypes.INTEGER,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
