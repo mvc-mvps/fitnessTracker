@@ -30,6 +30,10 @@
     <main class='container container-fluid mt-5'>
       {{{body}}}
     </main>
+      <!-- Render script for logged in users only - this allows users to log out if logged in-->
+      {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+      {{/if}}
     <footer>
 
     </footer>
