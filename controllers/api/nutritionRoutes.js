@@ -13,7 +13,10 @@ const express = require('express');
 
 // base inputs for request from api
 // const requestUrl = 'https://api.nutritionix.com/v1_1/search/';
-// // const searchInput = document.querySelector('#foodInput').value.trim();
+
+// const searchInput = document.querySelector('food-input').value.trim();
+
+
 // const resultParams =
 //   '?results=0:20&fields=item_name,brand_name,item_id,nf_calories,nf_protein';
 // const appIdAndKey = process.env.APP_ID_KEY;
@@ -24,23 +27,24 @@ const express = require('express');
 
 // let request = `${requestUrl}${searchInput}${resultParams}${appIdAndKey}`;
 
-const getNutritionDataa = () => {
-  axios
-    .get(request)
-    .then((response) => {
-      // Code for handling the response
-      console.log(response.data.hits[0].fields.brand_name);
-      data = response.data.hits[0];
-      express.use('/', function(req, res, next){
-        res.send({"name":"GeeksforGeeks"});
-        next();
-     });
-    })
-    .catch((error) => {
-      // Code for handling the error
-      console.error(error);
-    });
-};
+// const getNutritionData = () => {
+//   axios
+//     .get(request)
+//     .then((response) => {
+//       // Code for handling the response
+//       console.log(response.data.hits[0].fields.brand_name);
+//       const nutritionData = response.data.hits[0];
+//       console.log(nutritionData);
+//       express.use('/', function(req, res, next){
+//         res.send({"name":"GeeksforGeeks"});
+//         next();
+//      });
+//     })
+//     .catch((error) => {
+//       // Code for handling the error
+//       console.error(error);
+//     });
+// };
 
 // const getNutritionData = () => {
 //   console.log(request);
@@ -60,13 +64,15 @@ const getNutritionDataa = () => {
 
 router.post('/', async (req, res) => {
   try {
-    getNutritionDataa();
-    const getNutritionData = await Nutrition.create({
-      name: req.body.hits[0].fields.item_name,
-      calories: req.body.hits[0].fields.nf_calories,
+    // getNutritionDataa();
+    const nutritionData = await Nutrition.create({
+      // name: req.body.hits[0].fields.item_name,
+      // calories: req.body.hits[0].fields.nf_calories,
+      name: req.body.name,
+      calories: req.body.calories,
     });
     // if the dish is successfully created, the new response will be returned as json
-    res.status(200).json(getNutritionData);
+    res.status(200).json(nutritionData);
   } catch (err) {
     res.status(400).json(err);
   }
