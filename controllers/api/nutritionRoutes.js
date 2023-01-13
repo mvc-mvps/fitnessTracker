@@ -12,17 +12,17 @@ const express = require('express');
 // const searchButton = document.getElementById('search-button');
 
 // base inputs for request from api
-const requestUrl = 'https://api.nutritionix.com/v1_1/search/';
-const searchInput = document.querySelector('#foodInput').value.trim();
-const resultParams =
-  '?results=0:20&fields=item_name,brand_name,item_id,nf_calories,nf_protein';
-const appIdAndKey = process.env.APP_ID_KEY;
+// const requestUrl = 'https://api.nutritionix.com/v1_1/search/';
+// // const searchInput = document.querySelector('#foodInput').value.trim();
+// const resultParams =
+//   '?results=0:20&fields=item_name,brand_name,item_id,nf_calories,nf_protein';
+// const appIdAndKey = process.env.APP_ID_KEY;
 
 // //   const username = document.querySelector('#email-login').value.trim();
 
 // let query = document.querySelector("#foodInput").value.trim();
 
-let request = `${requestUrl}${searchInput}${resultParams}${appIdAndKey}`;
+// let request = `${requestUrl}${searchInput}${resultParams}${appIdAndKey}`;
 
 const getNutritionDataa = () => {
   axios
