@@ -12,7 +12,7 @@ Nutrition.init(
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     calories: {
         type: DataTypes.INTEGER,
