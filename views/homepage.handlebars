@@ -19,7 +19,12 @@
   <button class='btn' id='login'>log in</button>
 </a>
   <button class='btn' id='logout' type="submit">log out</button>
+{{#if logged_in}}
   <a href="/nutrition">
   <button class="btn" id="nutrition">nutrition</button>
   </a>
+  <a href="/exercise">
+  <button class="btn" id="exercise">exercise</button>
+  </a>
   <script src="/js/logout.js" type="text/javascript"></script>
+{{/if}}

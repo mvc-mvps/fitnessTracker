@@ -1,6 +1,15 @@
-<div><h1>Nutrition Page</h1></div>
-<form class="form foodInput-form">
-<div><input id='foodInput' type='text' />Search for a food item</div>
-<button type="submit" id="search-button">Search</button>
-</form>
+<div class="wrapper">
+    <div class="page-title"><h3>Nutrition</h3></div>
+    <nav>
+    <a href="/exercise"><button class="btn" id="exercise">go to exercise</button></a>
+    <a href="/planner"><button class="btn" id="planner">go to planner</button></a>
+    </nav>
+    <form class="form foodInput-form">
+        <input id="food-input" type="text" placeholder="Enter a food"/>
+        <button type="submit" id="search-button">Search</button>
+    </form>
+    <div class="data-container" id="food-output">
+        
+    </div>
+</div>
 <script src="/js/nutrition.js"></script>
