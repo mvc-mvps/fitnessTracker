@@ -1,14 +1,28 @@
 <div class="wrapper">
-    <div class="page-title"><h3>Exercise</h3></div>
     <nav><a href="/nutrition"><button class="btn" id="nutrition">go to nutrition</button></a>
-    <a href="/planner"><button class="btn" id="planner">go to planner</button></button></a>
+        <a href="/planner"><button class="btn" id="planner">go to planner</button></button></a>
     </nav>
-    <form class="form exercise-form">
-        <input id="exercise-input" type="text" placeholder="Enter an exercise"/>
-        <button type="submit" id="search-button">Search</button>
-    </form>
-    <div class="data-container" id="exercise-output">
-        
+    <div class="page-title">
+        <h2>Exercise</h2>
     </div>
+    <div id="exercise-output">
+        {{#each exercises as |exercise|}}
+        <div id="exercise-card">
+            <p>{{exercise.id}}.
+               {{exercise.exercise_type}}
+            </p>
+        </div>
+        {{/each}}
+    </div>
+    <form id="exercise-form" class="form">
+        <input id="exercise-input" type="text" placeholder="Add a new type of exercise" />
+        <button id="exercise-add" type="submit">Search</button>
+    </form>
+    {{!-- <form id="planner-exercise" class="form">
+        <h3>Set an exercise goal</h3>
+        <input id="exercise-date" type="text" placeholder="Exercise date" />
+        <input id="exercise-goal" type="text" placeholder="Number of reps or minutes" />
+        <button id="submit-goal" type="submit">Submit</button>
+    </form> --}}
 </div>
 <script src="/js/exercise.js"></script>

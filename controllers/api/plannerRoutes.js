@@ -10,6 +10,8 @@ router.get('/', async (req, res) => {
             include: [{ model: Nutrition }, { model: Exercise }],
         });
         res.status(200).json(plannerData);
+        const plans = plannerData.map((plan) => plan.get({ plain: true }));
+        res.render('planner', { plans });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -26,6 +28,8 @@ router.get('/:id', async (req, res) => {
             return;
         }
         res.status(200).json(plannerData);
+        const plan = plannerData.get({ plain: true });
+        res.render('planner', plan);
     } catch (err) {
         res.status(500).json(err);
     }
