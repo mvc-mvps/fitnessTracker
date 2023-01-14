@@ -2,6 +2,7 @@ const searchButton = document.getElementById('search-button');
 const nutritionSearchInput = document.querySelector('#food-input').value.trim();
 
 const postNutrition = async () => {
+
   const response = await fetch('/api/nutrition').then((data) => data.json());
 
   if (response.ok) {
