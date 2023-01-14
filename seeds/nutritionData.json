@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Chicken",
+        "calories": "335",
+        "protein": "38",
+        "carbs": "0",
+        "serving": "one cup"
+    },
+    {
+        "name": "Cheese(cheddar sliced)",
+        "calories": "113",
+        "protein": "7",
+        "carbs": "0.4",
+        "serving": "one slice"
+    },
+    {
+        "name": "apple",
+        "calories": "95",
+        "protein": "0.5",
+        "carbs": "25",
+        "serving": "one"
+    }
+]

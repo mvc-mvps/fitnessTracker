@@ -10,13 +10,12 @@ const express = require('express');
 const requestUrl = 'https://api.nutritionix.com/v1_1/search/';
 const resultParams =
   '?results=0:20&fields=item_name,brand_name,item_id,nf_calories,nf_protein';
-const appIdAndKey = process.env.APP_ID_KEY;
+const appIdAndKey = '&appId=E77012d9&appKey=92d7491ebf927740552c294741b0472a-';
 
-router.get('/', async (req, res) => {
-  let request = `${requestUrl}${nutritionSearchInput}${resultParams}${appIdAndKey}`;
-  axios.get(request).then((response) => {
+router.post('/', async (req, res) => {
+  axios.get(`${requestUrl}${req.body.nutritionSearchInput}${resultParams}${appIdAndKey}`).then((response) => {
     // Code for handling the response
-    console.log('data: ', response.data);
+    console.log('firing');
     let data = response.data.hits[0];
     res.render('nutrition', (apiData = data));
   });
