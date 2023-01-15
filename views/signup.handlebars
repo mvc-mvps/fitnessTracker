@@ -1,22 +1,23 @@
-<h2>Signup</h2>
 <div class="wrapper">
-<form class='form signup-form'>
-  <div class='form-group'>
-    <label for='signup-login'>username</label>
-    <input class='form-input' type='text' id='username-signup' />
-  </div>
-  <div class='form-group'>
-    <label for='signup-login'>password(8+ characters)</label>
-    <input class='form-input' type='text' id='password-signup' />
-  </div>
-  <div class='form-group'>
-    <button class='btn btn-primary' type='submit'>sign up</button>
-  </div>
-</form>
-<div class='form-group'>
-  <a href='/login'>
-    <button class='btn btn-primary' type='button'>Back to login</button>
-  </a>
+  <h2>Sign Up</h2>
+  <form id='signup-form' class='form'>
+    <div class='form-group'>
+      <label for='username-signup'>Username:</label>
+      <input id='username-signup' class='form-input' type='text' />
+    </div>
+    <div class='form-group'>
+      <label for='password-signup'>Password (8-16 characters):</label>
+      <input id='password-signup' class='form-input' type='text' />
+    </div>
+    <div class='form-group'>
+      <button class='btn btn-primary' type='submit'>Sign up</button>
+    </div>
+    <div class='form-group'>
+      <a href='/login'>
+        <button class='btn btn-primary' type='button'>Back to login</button>
+      </a>
+    </div>
+  </form>
 </div>
-</div>
+
 <script src='/js/signup.js'></script>

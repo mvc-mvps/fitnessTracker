@@ -1,21 +1,22 @@
-<h2>Login</h2>
-
-<form class='form login-form'>
+<div class="wrapper">
+  <h2>Login</h2>
+  <form class='form login-form'>
+    <div class='form-group'>
+      <label for='username-login'>Username:</label>
+      <input id='username-login' class='form-input' type='text' />
+    </div>
+    <div class='form-group'>
+      <label for='password-login'>Password:</label>
+      <input class='form-input' type='password' id='password-login' />
+    </div>
+    <div class='form-group'>
+      <button class='btn btn-primary' type='submit'>Login</button>
+    </div>
+  </form>
   <div class='form-group'>
-    <label for='username-login'>username:</label>
-    <input class='form-input' type='text' id='username-login' />
+    <a href='/signup'>
+      <button class='btn btn-primary' type='button'>New user? Sign up</button>
+    </a>
   </div>
-  <div class='form-group'>
-    <label for='password-login'>password:</label>
-    <input class='form-input' type='password' id='password-login' />
-  </div>
-  <div class='form-group'>
-    <button class='btn btn-primary' type='submit'>login</button>
-  </div>
-</form>
-<div class='form-group'>
-  <a href='/signup'>
-    <button class='btn btn-primary' type='button'>sign up now!</button>
-  </a>
 </div>
 <script src='/js/login.js'></script>
