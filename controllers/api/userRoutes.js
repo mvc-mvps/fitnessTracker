@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//route to login user
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
@@ -32,6 +33,7 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 // route to create new user
 router.post('/signup', async (req, res) => {
   try {
@@ -39,7 +41,7 @@ router.post('/signup', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userInput.id;
-      req.session.logged_in = true;
+      req.session.logged_in = false;
 
       res.status(200).json(userInput);
     });
@@ -48,57 +50,15 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// router.post('/logout', (req, res) => {
-//   if (req.session.logged_in) {
-//     req.session.destroy(() => {
-//       res.status(200).end();
-//       return res.redirect('/signup');
-//     });
-//   } else {
-//     res.status(404).end();
-//     console.log('not quite');
-//   }
-// });
-
-// router.get('/logout', function(req, res) {
-//   req.session.destroy(function(err){
-//      if(err){
-//         console.log(err);
-//      }else{
-//          console.log(session.username);
-//          req.end();
-//          res.redirect('/signup');
-//      }
-//   });
-
-// });
-
-// router.get("/logout", (req, res) => {
-//   req.session.destroy((err) => {
-//     if (err) {
-//       return console.log(err);
-//     }
-//     res.send("logged out");
-//     console.log("logged out");
-//     res.redirect('/');
-//   });
-// });
-
-// DELETE /api/auth/logout
-router.delete('/logout', (req, res) => {
-  if (req.session) {
-    req.session.destroy(err => {
-      if (err) {
-        res.status(400).send('Unable to log out')
-      } else {
-        res.send('Logout successful')
-      }
+//route to logput user
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
     });
   } else {
-    res.end()
+      res.status(404).end();
   }
 });
-
-
 
 module.exports = router;
