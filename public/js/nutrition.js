@@ -30,6 +30,7 @@ const nutritionSearchHandler = async () => {
     });
     if (res.ok) {
       console.log('working');
+      console.log('food-input: ',nutritionSearchInput);
     } else {
       console.log('keep trying');
     }

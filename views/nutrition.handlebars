@@ -1,23 +1,27 @@
-<div class="wrapper">
-    <div class="page-title">
-        <h2>Nutrition</h2>
-    </div>
-    <nav>
-        <a href="/exercise"><button class="btn" id="exercise">go to exercise</button></a>
-        <a href="/planner"><button class="btn" id="planner">go to planner</button></a>
-    </nav>
-    {{!-- <form class="form foodInput-form"> --}}
-        <input id="food-input" type="text" placeholder="Enter a food" />
-        <button type="submit" id="search-button">Search</button>
-        {{!--
-    </form> --}}
-    <div class="data-container" id="food-output">
-        {{#each nutritions as |nutrition|}}
+<div class='wrapper'>
+  <div class='page-title'>
+    <h2>Nutrition</h2>
+  </div>
+  <nav>
+    <a href='/exercise'><button class='btn' id='exercise'>go to exercise</button></a>
+    <a href='/planner'><button class='btn' id='planner'>go to planner</button></a>
+  </nav>
+  {{! <form class="form foodInput-form"> }}
+  <input id='food-input' type='text' placeholder='Enter a food' />
+  <button type='submit' id='search-button'>Search</button>
+  {{!
+    </form> }}
+  <div class='data-container' id='food-output'>
+    <p>
+      Nutrition Name:
+      {{name}}
+    </p>
+    {{!-- {{#each nutritions as |nutrition|}}
         <div id="nutrition-card">
             <p>{{nutrition.id}}. Name: {{nutrition.nutrition_name}} | Calories: {{nutrition.nutrition_calories}}
             </p>
         </div>
-        {{/each}}
-    </div>
+        {{/each}} --}}
+  </div>
 </div>
-<script src="/js/nutrition.js"></script>
+<script src='/js/nutrition.js'></script>

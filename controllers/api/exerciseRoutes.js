@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Exercise } = require('../../models');
+const Exercise = require('../../models/Exercise');
 
 // The `/api/exercise` endpoint
 
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // find a single exercise by its `id`
-router.get('/:id', async (req, res) => {
+router.get('/exercise/:id', async (req, res) => {
   try {
     const exerciseData = await Exercise.findByPk(req.params.id);
     if (!exerciseData) {
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
 });
 
 // update one exercise by its `id` value
-  router.put('/:id', async (req, res) => {
+  router.put('/exercise/:id', async (req, res) => {
     try {
       const exerciseData = await Exercise.update({
         where: {
@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
   });
 
   // delete one exercise by its `id` value
-  router.delete('/:id', async (req, res) => {
+  router.delete('/exercise/:id', async (req, res) => {
   try {
     const exerciseData = await Exercise.destroy({
       where: {
