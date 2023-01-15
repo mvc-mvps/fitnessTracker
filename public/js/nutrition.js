@@ -21,16 +21,17 @@
 
 const nutritionSearchHandler = async () => {
   const nutritionSearchInput = document.getElementById('food-input').value.trim();
-  console.log(nutritionSearchInput);
   if (nutritionSearchInput) {
     const res = await fetch('/api/nutrition', {
       method: 'POST',
       body: JSON.stringify({ nutritionSearchInput }),
       headers: { 'Content-Type': 'application/json' },
-    });
+    })
+    .then(function(data) {
+      console.log(data);
+    })
     if (res.ok) {
-      console.log('working');
-      console.log('food-input: ',nutritionSearchInput);
+      console.log('success');
     } else {
       console.log('keep trying');
     }
