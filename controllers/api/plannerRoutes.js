@@ -34,35 +34,46 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new planner item
-// router.post('/', (req, res) => {
-//     Planner.create({
-//         type: req.body.type,
-//         date: req.body.date,
-//         goal: req.body.goal,
-//         completed: req.body.completed,
-//         user_id: req.body.user_id
-//     })
-//         .then((planner) => {
-//             res.status(200).json(planner);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.status(400).json(err);
-//         });
-// });
+router.post('/add', (req, res) => {
+    Planner.create({
+        type: req.body.type,
+        date: req.body.date,
+        goal: req.body.goal,
+        completed: req.body.completed,
+        user_id: req.body.user_id
+    })
+        .then((planner) => {
+            res.status(200).json(planner);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(400).json(err);
+        });
+});
 
-router.post('/addexercise', async (req, res) => {
-    try {
-      const exerciseInput = await Planner.create(req.body);
+// router.post('/', async (req, res) => {
+//     try {
+//       const exerciseInput = await Planner.create(req.body);
   
-      req.session.save(() => {
-        req.session.planner_id = exerciseInput.id;
-        res.status(200).json(exerciseInput);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+//       req.session.save(() => {
+//         req.session.planner_id = exerciseInput.id;
+//         res.status(200).json(exerciseInput);
+//       });
+//     } catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
+
+// router.post('/add', async (req, res) => {
+//     try {
+//       console.log(req.body);
+//       const plannerData = await Planner.create(req.body);
+  
+//       res.status(200).json(plannerData);
+//     } catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
 
 // update one planner item by its `id` value
 router.put('/:id', async (req, res) => {
