@@ -42,21 +42,18 @@ const appIdAndKey = '&appId=E77012d9&appKey=92d7491ebf927740552c294741b0472a-';
 //   }
 // });
 
-// router.post('/', async (req, res) => {
-  
-//   sequelize.query(`SELECT * FROM nutrition WHERE name LIKE '${req.body.nutritionSearchInput}'`, { type: sequelize.QueryTypes.SELECT }, (err, rows, fields) => {
+router.post('/', async (req, res) => {
+  const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
+
+  if(nutritionData === null) {
+    res.status(400).json({ message: 'not a listed food' });
+    return;
+  } else {
     
-//   })
-//   .then(function (data) {
-//     if(data) {
-//       res.status(200).json({ message: 'success?' });
-//       res.send(data.json);
-//     } else {
-//       res.status(404).send({ message: 'could not find food' });
-//     }
-    
-//   });
-// });
+    res.send(nutritionData);
+  }
+});
+
 
 router.post('/', async (req, res) => {
   const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
