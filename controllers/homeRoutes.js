@@ -3,7 +3,7 @@ const { User, Planner } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('login');
 });
 
 router.get('/', withAuth, async (req, res) => {
@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('homepage');
     return;
   }
   res.render('login');
