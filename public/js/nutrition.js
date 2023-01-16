@@ -48,16 +48,16 @@ searchButton.addEventListener('click', function () {
 const body = document.getElementById('food-output');
 
 const newFoodHandler = async () => {
-  const newName = document.getElementById('newFoodName');
-  const newCalories = document.getElementById('newFoodCalories');
-  const newProtein = document.getElementById('newFoodProtein');
-  const newCarbs = document.getElementById('newFoodCarbs');
-  const newServing = document.getElementById('newFoodServing');
+  const name = document.getElementById('newFoodName').value.trim();
+  const calories = document.getElementById('newFoodCalories').value.trim();
+  const protein = document.getElementById('newFoodProtein').value.trim();
+  const carbs = document.getElementById('newFoodCarbs').value.trim();
+  const serving = document.getElementById('newFoodServing').value.trim();
 
-  if(newName && newCalories && newProtein && newCarbs && newServing) {
+  if(name && calories && protein && carbs && serving) {
     const response = await fetch('/api/nutrition/add', {
       method: 'POST',
-      body: JSON.stringify({ newName, newCalories, newProtein, newCarbs, newServing }),
+      body: JSON.stringify({ name, calories, protein, carbs, serving }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
