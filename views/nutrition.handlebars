@@ -11,17 +11,20 @@
   <button type='submit' id='search-button'>Search</button>
   {{!
     </form> }}
-  <div class='data-container' id='food-output'>
+  <p id='food-output'></p>
     <p>
       Nutrition Name:
       {{name}}
     </p>
+
+    <button id="newFoodBtn">Add New Food</button>
+
+    {{> newFood}}
     {{!-- {{#each nutritions as |nutrition|}}
         <div id="nutrition-card">
             <p>{{nutrition.id}}. Name: {{nutrition.nutrition_name}} | Calories: {{nutrition.nutrition_calories}}
             </p>
         </div>
         {{/each}} --}}
-  </div>
 </div>
 <script src='/js/nutrition.js'></script>

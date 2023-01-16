@@ -42,18 +42,42 @@ const appIdAndKey = '&appId=E77012d9&appKey=92d7491ebf927740552c294741b0472a-';
 //   }
 // });
 
-router.post('/', async (req, res) => {
+// router.post('/', async (req, res) => {
+  
+//   sequelize.query(`SELECT * FROM nutrition WHERE name LIKE '${req.body.nutritionSearchInput}'`, { type: sequelize.QueryTypes.SELECT }, (err, rows, fields) => {
+    
+//   })
+//   .then(function (data) {
+//     if(data) {
+//       res.status(200).json({ message: 'success?' });
+//       res.send(data.json);
+//     } else {
+//       res.status(404).send({ message: 'could not find food' });
+//     }
+    
+//   });
+// });
 
-  sequelize.query(`SELECT * FROM nutrition WHERE name LIKE '${req.body.nutritionSearchInput}'`, (err, rows, fields) => {
-    if (err) {
-      throw err;
-    } else {
-     console.log('success');
-    }
-  })
-  .then(function (data) {
-    res.send(data);
-  })
+router.post('/', async (req, res) => {
+  const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
+
+  if(nutritionData === null) {
+    res.status(400).json({ message: 'not a listed food' });
+    return;
+  } else {
+    
+    res.send(nutritionData);
+  }
+})
+
+router.post('/add', async (req, res) => {
+  try {
+    const newtritionData = await Nutrition.create(req.body);
+
+    res.status(200).json(newtritionData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
