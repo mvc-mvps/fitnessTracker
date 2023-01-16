@@ -9,7 +9,6 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-// const PORT = process.env.PORT || 3001;
 
 let port = process.env.PORT;
 if (port == null || port == "") {

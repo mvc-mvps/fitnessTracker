@@ -11,32 +11,36 @@ Planner.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        type: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         date: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         //goal for minutes/time or number of reps    
-        exercisegoal: {
+        goal: {
             type: DataTypes.INTEGER,
         },
         //completed minutes/time or number of reps    
-        exercisecompleted: {
+        completed: {
             type: DataTypes.INTEGER,
         },
-        exercise_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'exercise',
-                key: 'id',
-            },
-        },
-        nutrition_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'nutrition',
-                key: 'id',
-            },
-        },
+        // exercise_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'exercise',
+        //         key: 'id',
+        //     },
+        // },
+        // nutrition_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'nutrition',
+        //         key: 'id',
+        //     },
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
