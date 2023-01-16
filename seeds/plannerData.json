@@ -1,0 +1,20 @@
+[
+    {
+        "type": "Cardio",
+        "date": "01/16/23",
+        "goal": 30,
+        "completed": 60
+    },
+    {
+        "type": "Walking",
+        "date": "01/18/23",
+        "goal": 15,
+        "completed": 0
+    },
+    {
+        "type": "Swimming",
+        "date": "01/13/23",
+        "goal": 30,
+        "completed": 30
+    }
+]

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Planner } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name', 'ASC']],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const users = userData.map((user) => user.get({ plain: true }));
 
     res.render('homepage', {
       users,
@@ -29,7 +29,6 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
 });
 
@@ -48,4 +47,30 @@ router.get('/nutrition', (req, res) => {
 router.get('/exercise', (req, res) => {
   res.render('exercise');
 });
+
+router.get('/addexercise', (req, res) => {
+  res.render('addexercise');
+});
+
+router.get('/updateexercise', (req, res) => {
+  res.render('updateexercise');
+});
+
+
+// router.get('/', async (req, res) => {
+//   try {
+//     const plannerData = await Planner.findAll({
+//       order: [['date']],
+//     });
+
+//     const planners = plannerData.map((planner) => planner.get({ plain: true }));
+
+//     res.render('homepage', {
+//       planners,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 module.exports = router;

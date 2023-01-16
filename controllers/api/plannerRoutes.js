@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Planner, Exercise, Nutrition } = require('../../models');
+const Planner = require('../../models/Planner');
 
 // The `/api/planner` endpoint
 
@@ -7,11 +7,10 @@ const { Planner, Exercise, Nutrition } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const plannerData = await Planner.findAll({
-            include: [{ model: Nutrition }, { model: Exercise }],
         });
         res.status(200).json(plannerData);
         const plans = plannerData.map((plan) => plan.get({ plain: true }));
-        res.render('planner', { plans });
+        res.render('homepage', { plans });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -21,7 +20,6 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const plannerData = await Planner.findByPk(req.params.id, {
-            include: [{ model: Nutrition }, { model: Exercise }], 
         });
         if (!plannerData) {
             res.status(404).json({ message: 'No planner item found with this id!' });
@@ -29,30 +27,42 @@ router.get('/:id', async (req, res) => {
         }
         res.status(200).json(plannerData);
         const plan = plannerData.get({ plain: true });
-        res.render('planner', plan);
+        res.render('homepage', plan);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 // create new planner item
-router.post('/', (req, res) => {
-    Planner.create({
-        date: req.body.date,
-        exercisegoal: req.body.exercisegoal,
-        exercisecompleted: req.body.exercisecompleted,
-        exercise_id: req.body.exercise_id,
-        nutrition_id: req.body.nutrition_id,
-        user_id: req.body.user_id
-    })
-        .then((planner) => {
-            res.status(200).json(planner);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(400).json(err);
-        });
-});
+// router.post('/', (req, res) => {
+//     Planner.create({
+//         type: req.body.type,
+//         date: req.body.date,
+//         goal: req.body.goal,
+//         completed: req.body.completed,
+//         user_id: req.body.user_id
+//     })
+//         .then((planner) => {
+//             res.status(200).json(planner);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.status(400).json(err);
+//         });
+// });
+
+router.post('/addexercise', async (req, res) => {
+    try {
+      const exerciseInput = await Planner.create(req.body);
+  
+      req.session.save(() => {
+        req.session.planner_id = exerciseInput.id;
+        res.status(200).json(exerciseInput);
+      });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 
 // update one planner item by its `id` value
 router.put('/:id', async (req, res) => {

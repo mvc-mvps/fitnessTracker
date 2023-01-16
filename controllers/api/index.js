@@ -5,7 +5,10 @@ const exerciseRoutes = require('./exerciseRoutes');
 const nutritionRoutes = require('./nutritionRoutes');
 
 router.use('/user', userRoutes);
-router.use('/planner', plannerRoutes);
+router.use('/homepage', plannerRoutes);
+router.use('/addexercise', plannerRoutes);
+router.use('/updateexercise', plannerRoutes);
+router.use('/deleteexercise', plannerRoutes);
 router.use('/exercise', exerciseRoutes);
 router.use('/nutrition', nutritionRoutes);
 
