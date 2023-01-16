@@ -23,9 +23,6 @@ Planner.belongsTo(User, {
 });
 
 //associationS between planner model and nutrition/exercise models
-Planner.hasMany(Nutrition, {
-    foreignKey: 'planner_id',
-    onDelete: 'CASCADE'
-});
+
 
 module.exports = { User, Nutrition, Planner };

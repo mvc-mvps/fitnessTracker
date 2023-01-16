@@ -7,7 +7,7 @@ const addExerciseFormHandler = async (event) => {
     const completed = document.querySelector('#exercise-completed').value.trim();
   
     if (date && type && goal) {
-      const response = await fetch('/api/homepage', {
+      const response = await fetch('/api/planner/add', {
         method: 'POST',
         body: JSON.stringify({ date, type, goal, completed }),
         headers: { 'Content-Type': 'application/json' },
@@ -24,6 +24,3 @@ const addExerciseFormHandler = async (event) => {
   document
     .querySelector('#submit-exercise')
     .addEventListener('submit', addExerciseFormHandler);
-
-    //checkout the nutrition.js for event handler
-  
