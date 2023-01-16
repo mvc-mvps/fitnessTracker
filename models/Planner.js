@@ -27,20 +27,6 @@ Planner.init(
         completed: {
             type: DataTypes.INTEGER,
         },
-        // exercise_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'exercise',
-        //         key: 'id',
-        //     },
-        // },
-        // nutrition_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'nutrition',
-        //         key: 'id',
-        //     },
-        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

@@ -1,18 +1,8 @@
 const User = require('./User');
-const Exercise = require('./Exercise');
 const Nutrition = require('./Nutrition');
 const Planner = require('./Planner');
 
 //associations between user model and other models
-
-User.hasMany(Exercise, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-});
-
-Exercise.belongsTo(User, {
-    foreignKey: 'user_id'
-});
 
 User.hasMany(Nutrition, {
     foreignKey: 'user_id',
@@ -38,9 +28,4 @@ Planner.hasMany(Nutrition, {
     onDelete: 'CASCADE'
 });
 
-Planner.hasMany(Exercise, {
-    foreignKey: 'planner_id',
-    onDelete: 'CASCADE'
-});
-
-module.exports = { User, Exercise, Nutrition, Planner };
+module.exports = { User, Nutrition, Planner };

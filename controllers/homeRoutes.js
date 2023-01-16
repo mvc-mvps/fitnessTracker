@@ -56,6 +56,15 @@ router.get('/updateexercise', (req, res) => {
   res.render('updateexercise');
 });
 
+router.get('/addfood', (req, res) => {
+  res.render('addfood');
+});
+
+router.get('/updatefood', (req, res) => {
+  res.render('updatefood');
+});
+
+
 
 // router.get('/', async (req, res) => {
 //   try {
