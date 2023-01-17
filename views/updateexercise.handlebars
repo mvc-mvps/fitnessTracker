@@ -1,27 +1,29 @@
-<a href="/homepage">
+<a href="/api/planner">
     <button class="btn" id="home">Home</button>
 </a>
 
 <h2>Update Exercise</h2>
 
-<form>
+<form id="update-exercise" action="/edit" method="PUT">
     <div class="form-group">
-        <label for="exercise-date">Date: {{this.date}}</label>
-        <input class="form-control" id="exercise-date" placeholder="Date">
+        <label for="exercise-date">Date</label>
+        <input class="form-control" id="exercise-date" value="{{this.date}}" placeholder="Date of exercise" name="date">
     </div>
     <div class="form-group">
-        <label for="exercise-type">Exercise: {{this.type}}</label>
-        <input class="form-control" id="exercise-type" placeholder="Type of exercise">
+        <label for="exercise-type">Exercise</label>
+        <input class="form-control" id="exercise-type" value="{{this.type}}" placeholder="Type of exercise" name="type">
     </div>
     <div class="form-group">
-        <label for="exercise-goal">Goal - {{this.goal}} Minutes or Reps </label>
-        <input class="form-control" id="exercise-goal" placeholder="Number of reps or minutes">
+        <label for="exercise-goal">Goal</label>
+        <input class="form-control" id="exercise-goal" value="{{this.goal}}" placeholder="Number of reps or minutes" name="goal">
     </div>
     <div class="form-group">
-        <label for="exercise-completed">Completion - {{this.completed}} Minutes or Reps</label>
-        <input class="form-control" id="exercise-completed" placeholder="Number of reps or minutes">
+        <label for="exercise-completed">Done</label>
+        <input class="form-control" id="exercise-completed" value="{{this.completed}}" placeholder="Number of reps or minutes" name="completed">
     </div>
     <div class="form-group">
-        <a href="/homepage"><button class="btn primary btn" id="update-exercise">Update</button></a>
+        <a href="/api/planner"><button class="btn primary btn">Update</button></a>
     </div>
 </form>
+
+<script src='/js/updateexercise.js'></script>

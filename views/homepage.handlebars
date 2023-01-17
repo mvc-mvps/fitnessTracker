@@ -2,9 +2,9 @@
   <a href="/login">
     <button class='btn' id='logout' type="submit">Log Out</button>
   </a>
-  <a href="/nutrition">
+  {{!-- <a href="/nutrition">
     <button class="btn" id="nutrition">nutrition</button>
-  </a>
+  </a> --}}
   {{!-- <a href="/exercise">
     <button class="btn" id="exercise">exercise</button>
   </a> --}}
@@ -15,7 +15,7 @@
   <table class="table">
     <thead>
       <tr>
-        {{!-- <th scope="col">#</th> --}}
+        <th scope="col">#</th>
         <th scope="col">Date</th>
         <th scope="col">Type</th>
         <th scope="col">Goal</th>
@@ -25,7 +25,7 @@
     </thead>
     <tbody>
       <tr>
-        {{!-- <th scope="row">1</th> --}}
+        <th scope="row">0</th>
         <td scope="row">1/16/23</td>
         <td>Run</td>
         <td>30 min</td>
@@ -35,13 +35,13 @@
           <a href="/deleteexercise"><button class="btn danger-btn" id="delete-exercise">Delete</button></a>
         </td>
       </tr>
-      {{#each planners as |planner|}}
+      {{#each planneritems as |planneritem|}}
       <tr>
-        {{!-- <th scope="row">{{planner.id}}</th> --}}
-        <td>{{planner.date}}</td>
-        <td>{{planner.type}}</td>
-        <td>{{planner.goal}}</td>
-        <td>{{planner.completed}}</td>
+        <th scope="row">{{planneritem.id}}</th>
+        <td>{{planneritem.date}}</td>
+        <td>{{planneritem.type}}</td>
+        <td>{{planneritem.goal}}</td>
+        <td>{{planneritem.completed}}</td>
         <td>
           <a href="/updateexercise"><button class="btn secondary-btn" id="update-exercise">Update</button></a>
           <a href="/deleteexercise"><button class="btn danger-btn" id="delete-exercise">Delete</button></a>
