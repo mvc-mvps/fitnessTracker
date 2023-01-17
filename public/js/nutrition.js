@@ -1,3 +1,5 @@
+const { doc } = require("prettier");
+
 const newSubmit = document.getElementById('newFoodSubmit');
 newSubmit.addEventListener('click', function () {
   newFoodHandler();
@@ -68,3 +70,15 @@ const newFoodHandler = async () => {
   }
 
 };
+
+addFoodHandler = async () => {
+  const name = document.getElementById('newFoodName');
+  const calories = document.getElementById('newFoodCalories');
+  const protein = document.getElementById('newFoodProtein');
+  const carbs = document.getElementById('newFoodCarbs');
+  const serving = document.getElementById('newFoodServing');
+
+  if(name && calories && protein && carbs && serving) {
+    const response = await fetch('/api/')
+  }
+ }
