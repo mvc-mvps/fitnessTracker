@@ -29,7 +29,7 @@ router.get('/',
         })
         .then(plannerData => {
             const planneritems = plannerData.map(planneritem => planneritem.get({ plain: true }));
-            res.render('homepage', { planneritems });
+            res.render('exercise-homepage', { planneritems });
         })
         .catch(err => {
             console.log(err);
