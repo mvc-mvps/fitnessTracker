@@ -1,7 +1,35 @@
-<a href="/api/planner">
-    <button class="btn" id="home">Home</button>
+<a href="/api/nutrition">
+    <button class="btn" id="home">All Exercise</button>
 </a>
 
+<h2>Add Food</h2>
+
+<form id="submit-food" action="/add" method="POST">
+    <div class="form-group">
+        <label for="food-name">Food Name:</label>
+        <input class="form-control" id="food-name" placeholder="Name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="food-protein">Protein (g):</label>
+        <input class="form-control" id="food-protein" placeholder="Grams of protein" name="protein">
+    </div>
+    <div class="form-group">
+        <label for="food-calories">Calories:</label>
+        <input class="form-control" id="food-calories" placeholder="Number of calories" name="calories">
+    </div>
+    <div class="form-group">
+        <label for="food-servings">Servings:</label>
+        <input class="form-control" id="food-servings" placeholder="Number of servings" name="servings">
+    </div>
+    <div class="form-group">
+        <a href="/api/nutrition"><button class="btn primary btn">Add</button></a>
+    </div>
+</form>
+
+<script src='/js/addfood.js'></script>
+
+               
+{{!-- 
 <h2>Add Food</h2>
   
 <form class="form newFoodForm">
@@ -13,4 +41,4 @@
 </form>    
 <button id="newFoodSubmit" type="button">Submit</button>
 
-<script src='/js/nutrition.js'></script>
+<script src='/js/nutrition.js'></script> --}}

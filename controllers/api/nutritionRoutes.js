@@ -12,6 +12,56 @@ const resultParams =
   '?results=0:20&fields=item_name,brand_name,item_id,nf_calories,nf_protein';
 const appIdAndKey = '&appId=E77012d9&appKey=92d7491ebf927740552c294741b0472a-';
 
+
+// get all nutrition items
+router.get('/', 
+// withAuth
+(req, res) => {
+    Nutrition.findAll({
+            // where: {
+            //     user_id: req.session.user_id
+            // },
+            attributes: [
+                'id',
+                'name',
+                'protein',
+                'calories',
+                'serving'
+            ]
+            // ,
+            // include: [
+            //     {
+            //         model: User,
+            //         attributes: ['username']
+            //     }
+            // ]
+        })
+        .then(nutritionData => {
+            const nutritionitems = nutritionData.map(nutritionitem => nutritionitem.get({ plain: true }));
+            res.render('nutrition-homepage', { nutritionitems });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// create new nutrition item
+router.post('/add', (req, res) => {
+  Nutrition.create({
+      name: req.body.name,
+      protein: req.body.protein,
+      calories: req.body.calories,
+      serving: req.body.serving
+  })
+      .then((nutrition) => {
+          res.status(200).json(nutrition);
+      })
+      .catch((err) => {
+          console.log(err);
+          res.status(400).json(err);
+      });
+});
 // router.post('/', async (req, res) => {
 //   console.log('food-input backend: ', req.body.nutritionSearchInput);
 //   axios
