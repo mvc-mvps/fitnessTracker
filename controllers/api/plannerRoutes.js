@@ -1,37 +1,70 @@
 const router = require('express').Router();
-const Planner = require('../../models/Planner');
+const {Planner, User} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // The `/api/planner` endpoint
 
 // get all planner items
-router.get('/', async (req, res) => {
-    try {
-        const plannerData = await Planner.findAll({
+router.get('/', 
+// withAuth
+(req, res) => {
+    Planner.findAll({
+            // where: {
+            //     user_id: req.session.user_id
+            // },
+            attributes: [
+                'id',
+                'date',
+                'type',
+                'goal',
+                'completed'
+            ]
+            // ,
+            // include: [
+            //     {
+            //         model: User,
+            //         attributes: ['username']
+            //     }
+            // ]
+        })
+        .then(plannerData => {
+            const planneritems = plannerData.map(planneritem => planneritem.get({ plain: true }));
+            res.render('homepage', { planneritems });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-        res.status(200).json(plannerData);
-        const plans = plannerData.map((plan) => plan.get({ plain: true }));
-        res.render('homepage', { plans });
-    } catch (err) {
-        res.status(500).json(err);
-    }
 });
 
-// find a single planner item by its `id`
-router.get('/:id', async (req, res) => {
-    try {
-        const plannerData = await Planner.findByPk(req.params.id, {
-        });
-        if (!plannerData) {
-            res.status(404).json({ message: 'No planner item found with this id!' });
-            return;
-        }
-        res.status(200).json(plannerData);
-        const plan = plannerData.get({ plain: true });
-        res.render('homepage', plan);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// router.get('/', async (req, res) => {
+//     try {
+//         const plannerData = await Planner.findAll({
+//         });
+//         res.status(200).json(plannerData);
+//         const plans = plannerData.map((plan) => plan.get({ plain: true }));
+//         res.render('homepage', { plans });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
+// // find a single planner item by its `id`
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const plannerData = await Planner.findByPk(req.params.id, {
+//         });
+//         if (!plannerData) {
+//             res.status(404).json({ message: 'No planner item found with this id!' });
+//             return;
+//         }
+//         res.status(200).json(plannerData);
+//         const plan = plannerData.get({ plain: true });
+//         res.render('homepage', plan);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 // create new planner item
 router.post('/add', (req, res) => {
@@ -76,7 +109,8 @@ router.post('/add', (req, res) => {
 //   });
 
 // update one planner item by its `id` value
-router.put('/:id', async (req, res) => {
+
+router.put('/edit/:id', async (req, res) => {
     try {
         const plannerData = await Planner.update({
             where: {
@@ -96,7 +130,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // delete one planner item by its `id` value
-router.delete('/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
         const plannerData = await Planner.destroy({
             where: {

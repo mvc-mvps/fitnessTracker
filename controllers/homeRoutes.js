@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const users = userData.map((user) => user.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('/api/planner', {
       users,
       logged_in: req.session.logged_in,
     });
@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('homepage');
+    res.redirect('/api/planner');
     return;
   }
   res.render('login');
@@ -63,23 +63,5 @@ router.get('/addfood', (req, res) => {
 router.get('/updatefood', (req, res) => {
   res.render('updatefood');
 });
-
-
-
-// router.get('/', async (req, res) => {
-//   try {
-//     const plannerData = await Planner.findAll({
-//       order: [['date']],
-//     });
-
-//     const planners = plannerData.map((planner) => planner.get({ plain: true }));
-
-//     res.render('homepage', {
-//       planners,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;
