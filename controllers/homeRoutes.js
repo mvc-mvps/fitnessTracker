@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/api/planner');
+    res.redirect('homepage');
     return;
   }
   res.render('login');
@@ -36,13 +36,20 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// router.get('/exercise-homepage', (req, res) => {
-//   res.render('exercise-homepage');
-// });
+router.get('/homepage', (req, res) => {
+  res.render('homepage');
+});
 
 router.get('/nutrition', (req, res) => {
   res.render('nutrition');
 });
+
+router.get('/exercise-homepage', (req, res) => {
+  res.render('exercise-homepage');
+});
+
+router.get('/nutrition-homepage', (req, res) => {
+  res.render('nutrition-homepage')});
 
 router.get('/addexercise', (req, res) => {
   res.render('addexercise');
