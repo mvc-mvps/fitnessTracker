@@ -67,4 +67,6 @@ router.get('/updatefood', (req, res) => {
   res.render('updatefood');
 });
 
+
+
 module.exports = router;

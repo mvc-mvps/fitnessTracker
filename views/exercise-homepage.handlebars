@@ -1,42 +1,50 @@
-<div class="wrapper">
-  <a href="/api/nutrition">
-    <button class="btn" id="nutrition">Nutrition</button>
+<div class='wrapper'>
+  <a href='/api/nutrition'>
+    <button class='btn' id='nutrition'>Nutrition</button>
   </a>
 
-  <a href="/login">
-    <button class='btn' id='logout' type="submit">Log Out</button>
+  <a href='/login'>
+    <button class='btn' id='logout' type='submit'>Log Out</button>
   </a>
 
   <h2>Exercise</h2>
 
-  <a href="/addexercise"><button class="btn primary-btn" id="add-exercise">Add Exercise</button></a>
-  <table class="table">
+  <a href='/addexercise'><button class='btn primary-btn' id='add-exercise'>Add
+      Exercise</button></a>
+  <table class='table'>
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Date</th>
-        <th scope="col">Type</th>
-        <th scope="col">Goal</th>
-        <th scope="col">Done</th>
-        <th scope="col">Action</th>
+        <th scope='col'>#</th>
+        <th scope='col'>Date</th>
+        <th scope='col'>Type</th>
+        <th scope='col'>Goal</th>
+        <th scope='col'>Done</th>
+        <th scope='col'>Action</th>
       </tr>
     </thead>
     <tbody>
       {{#each planneritems as |planneritem|}}
-      <tr>
-        <th scope="row">{{planneritem.id}}</th>
-        <td>{{planneritem.date}}</td>
-        <td>{{planneritem.type}}</td>
-        <td>{{planneritem.goal}}</td>
-        <td>{{planneritem.completed}}</td>
-        <td>
-          <a href="/updateexercise"><button class="btn secondary-btn" id="update-exercise">Update</button></a>
-          <a href="/deleteexercise"><button class="btn danger-btn" id="delete-exercise">Delete</button></a>
-        </td>
-      </tr>
+        <tr>
+          <th scope='row'>{{planneritem.id}}</th>
+          <td>{{planneritem.date}}</td>
+          <td>{{planneritem.type}}</td>
+          <td>{{planneritem.goal}}</td>
+          <td>{{planneritem.completed}}</td>
+          <td>
+            <a href='/updateexercise'><button
+                class='btn secondary-btn'
+                id='update-exercise'
+              >Update</button></a>
+            <button
+              class='btn danger-btn delete-exercise'
+              data-id='{{planneritem.id}}'
+            >Delete</button>
+          </td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
 
-<script src="/js/logout.js" type="text/javascript"></script>
+<script src='/js/logout.js' type='text/javascript'></script>
+<script src='/js/deleteexercise.js' type='text/javascript'></script>
