@@ -36,9 +36,9 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/exercise-homepage', (req, res) => {
-  res.render('exercise-homepage');
-});
+// router.get('/exercise-homepage', (req, res) => {
+//   res.render('exercise-homepage');
+// });
 
 router.get('/nutrition', (req, res) => {
   res.render('nutrition');
