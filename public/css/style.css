@@ -18,6 +18,8 @@ body {
 header {
     background: var(--tertiary);
     color: var(--light);
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding: 30px;
 }
@@ -29,5 +31,5 @@ nav {
 
 .btn {
     border-radius: 4px;
-    color: var(--secondary)
+    color: var(--qautrinary)
 }
