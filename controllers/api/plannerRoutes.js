@@ -35,6 +35,9 @@ router.get(
   }
 );
 
+router.get('/updateexercise/:id', (req, res) => {
+  res.render('updateexercise');
+})
 // router.get('/', async (req, res) => {
 //     try {
 //         const plannerData = await Planner.findAll({
