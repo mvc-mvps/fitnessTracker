@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { request } = require('express');
 const { User, Planner } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -36,7 +37,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/homepage', (req, res) => {
+router.get('/homepage', async (req, res) => {
   res.render('homepage');
 });
 

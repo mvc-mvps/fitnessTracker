@@ -92,6 +92,10 @@ router.post('/add', (req, res) => {
 //   }
 // });
 
+router.get('/updatefood/:id', (req, res) => {
+  res.render('updatefood');
+})
+
 router.post('/', async (req, res) => {
   const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
 
