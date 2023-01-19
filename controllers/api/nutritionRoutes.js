@@ -96,6 +96,27 @@ router.get('/updatefood/:id', (req, res) => {
   res.render('updatefood');
 })
 
+router.put('/updateNutrition/:id', (req, res) => {
+  Nutrition.update(
+    {
+      name: req.body.name,
+      calories: req.body.calories,
+      protein: req.body.protein,
+      carbs: req.body.carbs,
+      serving: req.body.serving,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  ).then((updatedNutrition) => {
+    res.json(updatedNutrition);
+  }).catch((err) => {
+    res.json(err);
+  });
+});
+
 router.post('/', async (req, res) => {
   const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
 
