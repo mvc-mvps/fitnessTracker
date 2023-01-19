@@ -26,8 +26,8 @@ router.get('/',
                 'name',
                 'protein',
                 'calories',
-                'serving'
-            ]
+                'serving',
+            ],
             // ,
             // include: [
             //     {
@@ -127,5 +127,18 @@ router.post('/add', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.delete('/deletefood/:id', (req, res) => {
+  Nutrition.destroy({
+    where: {
+      id: req.params.id,
+    },
+  }).then((deletedFood) => {
+    res.json(deletedFood);
+  }).catch((err) => {
+    res.json(err);
+  })
+});
+
 
 module.exports = router;

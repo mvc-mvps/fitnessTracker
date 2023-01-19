@@ -1,42 +1,52 @@
-<div class="wrapper">
-    <a href="/api/planner">
-        <button class="btn" id="exercise">Exercise</button>
-    </a>
+<div class='wrapper'>
+  <a href='/api/planner'>
+    <button class='btn' id='exercise'>Exercise</button>
+  </a>
 
-    <a href="/login">
-        <button class='btn' id='logout' type="submit">Log Out</button>
-    </a>
+  <a href='/login'>
+    <button class='btn' id='logout' type='submit'>Log Out</button>
+  </a>
 
-    <h2>Nutrition</h2>
+  <h2>Nutrition</h2>
 
-    <a href="/addfood"><button class="btn primary-btn" id="add-food">Add Food</button></a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Protein</th>
-                <th scope="col">Calories</th>
-                <th scope="col">Serving</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each nutritionitems as |nutritionitem|}}
-            <tr>
-                <th scope="row">{{nutritionitem.id}}</th>
-                <td>{{nutritionitem.name}}</td>
-                <td>{{nutritionitem.protein}}</td>
-                <td>{{nutritionitem.calories}}</td>
-                <td>{{nutritionitem.serving}}</td>
-                <td>
-                    <a href="/updatefood"><button class="btn secondary-btn" id="update-food">Update</button></a>
-                    <a href="/deletefood"><button class="btn danger-btn" id="delete-food">Delete</button></a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+  <a href='/addfood'><button class='btn primary-btn' id='add-food'>Add Food</button></a>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>#</th>
+        <th scope='col'>Name</th>
+        <th scope='col'>Protein</th>
+        <th scope='col'>Calories</th>
+        <th scope='col'>Serving</th>
+        <th scope='col'>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each nutritionitems as |nutritionitem|}}
+        <tr>
+          <th
+            class='nutritionId'
+            value='{{nutritionitem.id}}'
+            scope='row'
+          >{{nutritionitem.id}}</th>
+          <td>{{nutritionitem.name}}</td>
+          <td>{{nutritionitem.protein}}</td>
+          <td>{{nutritionitem.calories}}</td>
+          <td>{{nutritionitem.serving}}</td>
+          <td>
+            <a href='/updatefood'><button
+                class='btn secondary-btn'
+                id='update-food'
+              >Update</button></a>
+            <button
+              class='btn danger-btn delete-food'
+              data-id='{{nutritionitem.id}}'
+            >Delete</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
-
-<script src="/js/logout.js" type="text/javascript"></script>
+<script src='/js/deleteNutrition.js' type='text/javascript'></script>
+<script src='/js/logout.js' type='text/javascript'></script>
