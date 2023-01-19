@@ -7,7 +7,7 @@
 <form id="update-exercise" action="/edit" method="PUT">
     <div class="form-group">
         <label for="exercise-date">Date</label>
-        <input class="form-control" id="exercise-date" value="{{this.date}}" placeholder="Date of exercise" name="date">
+        <input class="form-control" id="exercise-date" value="{{this.id}}" placeholder="Date of exercise" name="date">
     </div>
     <div class="form-group">
         <label for="exercise-type">Exercise</label>
@@ -22,7 +22,7 @@
         <input class="form-control" id="exercise-completed" value="{{this.completed}}" placeholder="Number of reps or minutes" name="completed">
     </div>
     <div class="form-group">
-        <a href="/api/planner"><button class="btn primary btn">Update</button></a>
+        <button class="btn primary btn" id="updateExerciseButton">Update</button>
     </div>
 </form>
 
