@@ -49,27 +49,28 @@ searchButton.addEventListener('click', function () {
 });
 const body = document.getElementById('food-output');
 
-const newFoodHandler = async () => {
-  const name = document.getElementById('newFoodName').value.trim();
-  const calories = document.getElementById('newFoodCalories').value.trim();
-  const protein = document.getElementById('newFoodProtein').value.trim();
-  const carbs = document.getElementById('newFoodCarbs').value.trim();
-  const serving = document.getElementById('newFoodServing').value.trim();
+// const newFoodHandler = async () => {
+//   const name = document.querySelector('#newFoodName').value.trim();
+//   const calories = document.querySelector('#newFoodCalories').value.trim();
+//   const protein = document.querySelector('#newFoodProtein').value.trim();
+//   const carbs = document.querySelector('#newFoodCarbs').value.trim();
+//   const serving = document.querySelector('#food-servings').value.trim();
 
-  if(name && calories && protein && carbs && serving) {
-    const response = await fetch('/api/nutrition/add', {
-      method: 'POST',
-      body: JSON.stringify({ name, calories, protein, carbs, serving }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      alert('New Food Added :)');
-    } else {
-      alert('Something went wrong :(');
-    }
-  }
+//   if(name && calories && protein && carbs && serving) {
+//     console.log(serving);
+//     const response = await fetch('/api/nutrition/add', {
+//       method: 'POST',
+//       body: JSON.stringify({ name, calories, protein, carbs, serving }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
+//     if (response.ok) {
+//       alert('New Food Added :)');
+//     } else {
+//       alert('Something went wrong :(');
+//     }
+//   }
 
-};
+// };
 
 addFoodHandler = async () => {
   const name = document.getElementById('newFoodName');
