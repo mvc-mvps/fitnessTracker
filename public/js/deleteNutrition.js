@@ -18,4 +18,3 @@ deleteButton.forEach((element) => {
     element.addEventListener('click', deleteNutritionHandler);
 });
 
-
