@@ -12,16 +12,22 @@
       crossorigin='anonymous'
     />
     <link rel='stylesheet' href='/css/style.css' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Anton&display=swap'
+      rel='stylesheet'
+    />
   </head>
 
   <body>
     <header class='display-flex justify-space-between align-center p-2'>
-      {{!-- <nav>
+      {{! <nav>
         <a href='/homepage'>
           <button class='btn' id='homepage-btn'>homepage</button>
         </a>
 
-      </nav> --}}
+      </nav> }}
       <h1>
         Fitness Tracker App
       </h1>
@@ -30,14 +36,14 @@
     <main class='container container-fluid mt-5'>
       {{{body}}}
     </main>
-      <!-- Render script for logged in users only - this allows users to log out if logged in-->
-      {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-      {{/if}}
+    <!-- Render script for logged in users only - this allows users to log out if logged in-->
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
     <footer>
 
     </footer>
- 
+
   </body>
 
 </html>
