@@ -34,3 +34,17 @@ nav {
     color: var(--qautrinary)
 }
 
+/* Homepage */
+.btnH {
+    background: var(--qautrinary);
+    border-radius: 5px;
+    color: var(--light);
+    font-size: x-large;
+    justify-content: end;
+}
+
+.btnH:hover {
+    background-color: var(--light);
+    color: var(--qautrinary);
+}
+/* End of Homepage */
