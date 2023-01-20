@@ -1,50 +1,59 @@
 :root {
-    --primary: #04972d;
-    --secondary: #e1ebe2;
-    --tertiary: #2b762b;
-    --qautrinary: #3d5841;
-    --light: #fefefe;
-    --dark: #060707;
-    --error: #ff0000;
-    --border-radius: 0.3rem;
+  --primary: #67bc00;
+  --secondary: #808080;
+  --tertiary: #54545438;
+  --qautrinary: #3d5841;
+  --light: #ffffff;
+  --dark: #060707;
+  --error: #ff0000;
+  --border-radius: 0.3rem;
 }
 
 body {
-    background-color: var(--light);
-    font-family: 'Times New Roman', Times, serif;
-    margin: 0;
+  background: var(--dark);
+  font-family: 'Anton', sans-serif;
+  margin: 0;
+  color: var(--light);
 }
 
 header {
-    background: var(--tertiary);
-    color: var(--light);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
+  background: var(--dark);
+  background: radial-gradient(circle, var(--secondary) 0%, var(--tertiary)) 100%;
+  color: var(--light);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
 }
 
 nav {
-    color: var(--qautrinary);
-    text-decoration: underline;
+  color: var(--qautrinary);
+  text-decoration: underline;
 }
 
 .btn {
-    border-radius: 4px;
-    color: var(--qautrinary)
+  background: var(--primary);
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: var(--secondary);
+  color: var(--light);
 }
 
 /* Homepage */
 .btnH {
-    background: var(--qautrinary);
-    border-radius: 5px;
-    color: var(--light);
-    font-size: x-large;
-    justify-content: end;
+  background: var(--qautrinary);
+  border-radius: 5px;
+  color: var(--light);
+  font-size: x-large;
+  justify-content: end;
 }
 
 .btnH:hover {
-    background-color: var(--light);
-    color: var(--qautrinary);
+  background-color: var(--light);
+  color: var(--qautrinary);
+}
+
+.card-body {
+    background-color: var(--secondary);
 }
 /* End of Homepage */
