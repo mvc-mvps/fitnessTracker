@@ -64,7 +64,7 @@ router.get('/addfood', (req, res) => {
   res.render('addfood');
 });
 
-router.get('/updatefood', (req, res) => {
+router.get('/updatefood/:id', (req, res) => {
   res.render('updatefood');
 });
 
