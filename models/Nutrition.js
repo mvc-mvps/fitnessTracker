@@ -32,13 +32,13 @@ Nutrition.init(
       // allowNull: false,
     },
     //Need other variables we want to include
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

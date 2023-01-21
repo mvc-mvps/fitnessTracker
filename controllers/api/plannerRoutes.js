@@ -7,6 +7,9 @@ const withAuth = require('../../utils/auth');
 // get all planner items
 router.get('/', (req, res) => {
   Planner.findAll({
+    where: {
+      user_id: req.session.user_id
+  },
     attributes: ['id', 'date', 'type', 'goal', 'completed'],
   })
     .then((plannerData) => {
@@ -32,7 +35,7 @@ router.post('/add', (req, res) => {
     date: req.body.date,
     goal: req.body.goal,
     completed: req.body.completed,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
   })
     .then((planner) => {
       res.status(200).json(planner);
@@ -52,6 +55,7 @@ router.put('/updateexercise/:id', async (req, res) => {
       date: req.body.date,
       goal: req.body.goal,
       completed: req.body.completed,
+      user_id: req.session.user_id,
     },
     {
       where: {
