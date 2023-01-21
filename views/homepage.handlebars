@@ -12,3 +12,47 @@
     <p class="card-text">“Go the extra mile. It’s never crowded.” -Wayne Dyer</p>
   </div>
 </div>
+
+<table>
+  <thead>
+    <th>id</th>
+    <th>Name</th>
+    <th>Proteins</th>
+    <th>Calories</th>
+    <th>Servings</th>
+  </thead>
+  <tbody>
+    {{#each data1 as |row|}}
+      <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.protein}}</td>
+        <td>{{row.calories}}</td>
+        <td>{{row.serving}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <th>id</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Goal</th>
+    <th>Completed</th>
+  </thead>
+  <tbody>
+    {{#each data2 as |row|}}
+      <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.type}}</td>
+        <td>{{row.goal}}</td>
+        <td>{{row.completed}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{!-- <script src="/js/homepage.js"></script> --}}
