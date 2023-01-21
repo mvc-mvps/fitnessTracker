@@ -6,7 +6,7 @@ const addExerciseFormHandler = async (event) => {
     const goal = document.querySelector('#exercise-goal').value.trim();
     const completed = document.querySelector('#exercise-completed').value.trim();
   
-    if (date && type && goal) {
+    if (date && type && goal && completed) {
       const response = await fetch('/api/planner/add', {
         method: 'POST',
         body: JSON.stringify({ date, type, goal, completed }),
@@ -18,6 +18,12 @@ const addExerciseFormHandler = async (event) => {
       } else {
         alert('Failed to add exercise.');
       }
+    }
+    if (date === "" || type === "" || goal === "" || completed === "") {
+        document.getElementById('formValidation').innerHTML = `
+        <div class="alert alert-danger" role="alert">
+        You must fill out all required fields on the form. Enter "0" for "Completed" if you haven't started this exercise yet. 
+        </div>`;
     }
   };
   

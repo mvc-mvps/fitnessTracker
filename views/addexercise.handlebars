@@ -1,29 +1,35 @@
-<a href="/api/planner">
-    <button class="btn" id="home">Home</button>
-</a>
+<nav class="nav">
+    <a class="nav-link" href="/homepage">Home</a>
+    <a class="nav-link" href="/exercise-homepage">Exercise</a>
+    <a class="nav-link" href="/nutrition-homepage">Nutrition</a>
+</nav>
 
-<h2>Add Exercise</h2>
+<div class="container-lg p-3">
 
-<form id="submit-exercise" action="/add" method="POST">
-    <div class="form-group">
-        <label for="exercise-date">Date:</label>
-        <input class="form-control" id="exercise-date" placeholder="Date" name="date">
-    </div>
-    <div class="form-group">
-        <label for="exercise-type">Exercise:</label>
-        <input class="form-control" id="exercise-type" placeholder="Type of exercise" name="type">
-    </div>
-    <div class="form-group">
-        <label for="exercise-goal">Goal - Minutes or Reps:</label>
-        <input class="form-control" id="exercise-goal" placeholder="Number of Minutes or Reps" name="goal">
-    </div>
-    <div class="form-group">
-        <label for="exercise-completed">Completed - Minutes or Reps:</label>
-        <input class="form-control" id="exercise-completed" placeholder="Number of Minutes or Reps" name="completed">
-    </div>
-    <div class="form-group">
-        <a href="/api/planner"><button class="btn primary btn">Add</button></a>
-    </div>
-</form>
+    <h2>Add Exercise</h2>
+
+    <form class="row g-3" id="submit-exercise" action="/add" method="POST">
+        <div class="col-lg-7 p-3">
+            <label for="exercise-date"><i class="fa-solid fa-calendar-days"></i>Date:</label>
+            <input class="form-control" id="exercise-date" placeholder="MM/DD/YYYY (required)" name="date">
+        </div>
+        <div class="col-lg-7 p-3">
+            <label for="exercise-type"><i class="fa-solid fa-person-running"></i>Exercise:</label>
+            <input class="form-control" id="exercise-type" placeholder="e.g., Biking (required)" name="type">
+        </div>
+        <div class="col-lg-7 p-3">
+            <label for="exercise-goal"><i class="fa-solid fa-goal-net"></i>Goal:</label>
+            <input class="form-control" id="exercise-goal" placeholder="Number of minutes/reps (required)" name="goal">
+        </div>
+        <div class="col-lg-7 p-3">
+            <label for="exercise-completed"><i class="fa-regular fa-square-check"></i>Completed (enter "0" if not started):</label>
+            <input class="form-control" id="exercise-completed" placeholder="Number of minutes/reps (required)" name="completed">
+        </div>
+        <div class="col-lg-7" id="formValidation"></div>
+        <div class="col-lg-7 p-3">
+            <a href="exercise-homepage"><button class="btn primary btn">Add</button></a>
+        </div>
+    </form>
+</div>
 
 <script src='/js/addexercise.js'></script>

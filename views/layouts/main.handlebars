@@ -1,53 +1,48 @@
 <html lang='en'>
 
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>FitLyfe for Life</title>
-    <link rel='stylesheet' href='/css/jass.css' />
-    <link
-      rel='stylesheet'
-      href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'
-      integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2'
-      crossorigin='anonymous'
-    />
-    <link rel='stylesheet' href='/css/style.css' />
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Anton&display=swap'
-      rel='stylesheet'
-    />
-  </head>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>FitLyfe for Life</title>
+  <link rel='stylesheet' href='/css/jass.css' />
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'
+    integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2' crossorigin='anonymous' />
+  <link rel='stylesheet' href='/css/style.css' />
+  <link rel='preconnect' href='https://fonts.googleapis.com' />
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+  <link href='https://fonts.googleapis.com/css2?family=Anton&display=swap' rel='stylesheet' />
+  <link rel="icon" href="../../public/img/fitlyfe4life-logo.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
 
-  <body>
-    <header class='display-flex justify-space-between align-center p-2'>
-      {{! <nav>
-        <a href='/homepage'>
-          <button class='btn' id='homepage-btn'>homepage</button>
-        </a>
+<body>
+  <header class='display-flex justify-space-between align-center p-2'>
+    {{! <nav>
+      <a href='/homepage'>
+        <button class='btn' id='homepage-btn'>homepage</button>
+      </a>
 
-      </nav> }}
-      <h1>
-        FitLyfe for Life
-      </h1>
+    </nav> }}
+    <img src="../../public/img/fitlyfe4life-logo.png">
+    <h1>
+      FitLyfe 4 Life
+    </h1>
 
-    </header>
-    <main class='container container-fluid mt-5'>
-      {{{body}}}
-    </main>
-    <!-- Render script for logged in users only - this allows users to log out if logged in-->
-    {{#if logged_in}}
-      <script src='/js/logout.js'></script>
-    {{/if}}
-    <footer>
+  </header>
+  <main class='container container-fluid mt-5'>
+    {{{body}}}
+  </main>
+  <!-- Render script for logged in users only - this allows users to log out if logged in-->
+  {{#if logged_in}}
+  <script src='/js/logout.js'></script>
+  {{/if}}
+  <footer>
 
-    </footer>
-    <script
-      src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js'
-      integrity='sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN'
-      crossorigin='anonymous'
-    ></script>
-  </body>
+  </footer>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js'
+    integrity='sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN'
+    crossorigin='anonymous'></script>
+</body>
 
 </html>
