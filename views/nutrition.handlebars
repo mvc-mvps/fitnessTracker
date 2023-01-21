@@ -1,7 +1,7 @@
 <div class='wrapper'>
   {{! <form class="form foodInput-form"> }}
     <input id='food-input' type='text' placeholder='Enter a food' />
-    <button type='submit' id='search-button'>Search</button>
+    <button type='submit' id='search-button' class="btnN">Search</button>
     {{!
   </form> }}
   <p id='food-output'></p>
@@ -10,7 +10,7 @@
     {{name}}
   </p>
 
-  <button id="newFoodBtn">Add New Food</button>
+  {{!-- <button id="newFoodBtn">Add New Food</button> --}}
 
   {{> newFood}}
   {{!-- {{#each nutritions as |nutrition|}}

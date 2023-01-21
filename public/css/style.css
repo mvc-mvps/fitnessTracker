@@ -45,8 +45,7 @@ nav {
   border-radius: 5px;
   color: var(--light);
   font-size: x-large;
-  margin-left: 64px;
-  justify-content: end;
+  margin-left: 62.5px;
 }
 
 .btnH:hover {
@@ -61,5 +60,39 @@ nav {
 
 .card-body {
     background-color: var(--secondary);
+    font-size: x-large;
+    text-align: center;
+}
+
+.card-title {
+  font-size: larger;
+  text-decoration: underline;
 }
 /* End of Homepage */
+
+/* Nutrition */
+
+.wrapper {
+  font-size: xx-large;
+  text-align: center; 
+}
+
+.btnN {
+  background: var(--primary);
+  color: var(--light);
+}
+
+.btnN:hover {
+  background-color: var(--light);
+  color: var(--qautrinary);
+}
+
+.form-label {
+  font-size: large;
+  justify-content: left;
+}
+
+.input-box {
+  text-align: center;
+}
+/* End of Nutrition */
