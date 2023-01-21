@@ -25,7 +25,7 @@
     <tbody>
       {{#each planneritems as |planneritem|}}
         <tr>
-          <th scope='row'>{{planneritem.id}}</th>
+          <th scope='row' class="idData">{{planneritem.id}}</th>
           <td>{{planneritem.date}}</td>
           <td>{{planneritem.type}}</td>
           <td>{{planneritem.goal}}</td>
@@ -47,3 +47,4 @@
 
 <script src='/js/logout.js' type='text/javascript'></script>
 <script src='/js/deleteexercise.js' type='text/javascript'></script>
+<script src="/js/totalWorkout.js" type="text/javascript"></script>

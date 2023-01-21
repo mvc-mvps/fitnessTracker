@@ -12,55 +12,60 @@ const resultParams =
   '?results=0:20&fields=item_name,brand_name,item_id,nf_calories,nf_protein';
 const appIdAndKey = '&appId=E77012d9&appKey=92d7491ebf927740552c294741b0472a-';
 
-
 // get all nutrition items
-router.get('/', 
-// withAuth
-(req, res) => {
+router.get(
+  '/',
+  // withAuth
+  (req, res) => {
     Nutrition.findAll({
-            // where: {
-            //     user_id: req.session.user_id
-            // },
-            attributes: [
-                'id',
-                'name',
-                'protein',
-                'calories',
-                'serving',
-            ],
-            // ,
-            // include: [
-            //     {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // ]
-        })
-        .then(nutritionData => {
-            const nutritionitems = nutritionData.map(nutritionitem => nutritionitem.get({ plain: true }));
-            res.render('nutrition-homepage', { nutritionitems });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+      // where: {
+      //     user_id: req.session.user_id
+      // },
+      attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+      // ,
+      // include: [
+      //     {
+      //         model: User,
+      //         attributes: ['username']
+      //     }
+      // ]
+    })
+      .then((nutritionData) => {
+        const nutritionitems = nutritionData.map((nutritionitem) =>
+          nutritionitem.get({ plain: true })
+        );
+        res.render('nutrition-homepage', { nutritionitems });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+);
 
+router.get('/', (req, res) => {
+  Nutrition.findAll({
+    attributes: ['calories'],
+  }).then((caloriData) => {
+    const calorieData = caloriData.map((calori) => calori.get({ plain: true }));
+    res.json(calorieData);
+  });
+});
 // create new nutrition item
 router.post('/add', (req, res) => {
   Nutrition.create({
-      name: req.body.name,
-      protein: req.body.protein,
-      calories: req.body.calories,
-      serving: req.body.serving
+    name: req.body.name,
+    protein: req.body.protein,
+    calories: req.body.calories,
+    serving: req.body.serving,
   })
-      .then((nutrition) => {
-          res.status(200).json(nutrition);
-      })
-      .catch((err) => {
-          console.log(err);
-          res.status(400).json(err);
-      });
+    .then((nutrition) => {
+      res.status(200).json(nutrition);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 });
 // router.post('/', async (req, res) => {
 //   console.log('food-input backend: ', req.body.nutritionSearchInput);
@@ -92,78 +97,75 @@ router.post('/add', (req, res) => {
 //   }
 // });
 
-router.get('/updatefood/:id', (req, res) => {
-  res.render('updatefood');
-})
+// router.get('/updatefood/:id', (req, res) => {
+//   res.render('updatefood');
+// });
 
 router.put('/updateNutrition/:id', (req, res) => {
-  Nutrition.update(
-    {
-      name: req.body.name,
-      calories: req.body.calories,
-      protein: req.body.protein,
-      carbs: req.body.carbs,
-      serving: req.body.serving,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  ).then((updatedNutrition) => {
-    res.json(updatedNutrition);
-  }).catch((err) => {
-    res.json(err);
-  });
-});
-
-router.post('/', async (req, res) => {
-  const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
-
-  if(nutritionData === null) {
-    res.status(400).json({ message: 'not a listed food' });
-    return;
-  } else {
-    
-    res.send(nutritionData);
-  }
-});
-
-
-router.post('/', async (req, res) => {
-  const nutritionData = Nutrition.findOne({ where: { name:req.body.nutritionSearchInput }});
-
-  if(nutritionData === null) {
-    res.status(400).json({ message: 'not a listed food' });
-    return;
-  } else {
-    
-    res.send(nutritionData);
-  }
-})
-
-router.post('/add', async (req, res) => {
+  console.log(req.body.name);
   try {
-    console.log(req.body);
-    const newtritionData = await Nutrition.create(req.body);
-
-    res.status(200).json(newtritionData);
+    Nutrition.update(
+      {
+        name: req.body.name,
+        calories: req.body.calories,
+        protein: req.body.protein,
+        serving: req.body.serving,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    )
+      .then((nutritionItem) => {
+        res.json(nutritionItem);
+        // res.render('nutrition-homepage', { nutritionItem });
+        // console.log(nutritionItem);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
   } catch (err) {
-    res.status(400).json(err);
+    res.json(err);
   }
 });
+
+router.post('/', async (req, res) => {
+  const nutritionData = Nutrition.findOne({
+    where: { name: req.body.nutritionSearchInput },
+  });
+
+  if (nutritionData === null) {
+    res.status(400).json({ message: 'not a listed food' });
+    return;
+  } else {
+    res.send(nutritionData);
+  }
+});
+
+// router.post('/add', async (req, res) => {
+//   try {
+//     console.log(req.body);
+//     const newtritionData = await Nutrition.create(req.body);
+
+//     res.status(200).json(newtritionData);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.delete('/deletefood/:id', (req, res) => {
   Nutrition.destroy({
     where: {
       id: req.params.id,
     },
-  }).then((deletedFood) => {
-    res.json(deletedFood);
-  }).catch((err) => {
-    res.json(err);
   })
+    .then((deletedFood) => {
+      res.json(deletedFood);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
-
 
 module.exports = router;
