@@ -18,9 +18,9 @@ router.get(
   // withAuth
   (req, res) => {
     Nutrition.findAll({
-      // where: {
-      //     user_id: req.session.user_id
-      // },
+      where: {
+          user_id: req.session.user_id
+      },
       attributes: ['id', 'name', 'protein', 'calories', 'serving'],
       // ,
       // include: [
@@ -54,6 +54,7 @@ router.get('/', (req, res) => {
 // create new nutrition item
 router.post('/add', (req, res) => {
   Nutrition.create({
+    user_id: req.session.user_id,
     name: req.body.name,
     protein: req.body.protein,
     calories: req.body.calories,
