@@ -9,6 +9,20 @@
 
   <h2>Exercise</h2>
 
+  <div><h5>Current Date:</h5><p id='currentDate'></p></div>
+  <div id='exerciseAlert'></div>
+  <h5>Progress</h5>
+  <div
+    class='progress'
+    role='progressbar'
+    aria-label='Basic example'
+    aria-valuenow='0'
+    aria-valuemin='0'
+    aria-valuemax='100'
+  >
+    <div class='progress-bar' style='width: 0%'></div>
+  </div>
+
   <a href='/addexercise'><button class='btn primary-btn' id='add-exercise'>Add
       Exercise</button></a>
   <table class='table'>
@@ -25,11 +39,11 @@
     <tbody>
       {{#each planneritems as |planneritem|}}
         <tr>
-          <th scope='row' class="idData">{{planneritem.id}}</th>
-          <td>{{planneritem.date}}</td>
+          <th scope='row' class='idData'>{{planneritem.id}}</th>
+          <td class='dateData'>{{planneritem.date}}</td>
           <td>{{planneritem.type}}</td>
-          <td class="goalData">{{planneritem.goal}}</td>
-          <td class="completedData">{{planneritem.completed}}</td>
+          <td class='goalData'>{{planneritem.goal}}</td>
+          <td class='completedData'>{{planneritem.completed}}</td>
           <td>
             <a href='/api/planner/updateexercise/{{planneritem.id}}'><button
                 class='btn secondary-btn'
@@ -47,4 +61,4 @@
 
 <script src='/js/logout.js' type='text/javascript'></script>
 <script src='/js/deleteexercise.js' type='text/javascript'></script>
-<script src="/js/totalWorkout.js" type="text/javascript"></script>
+<script src='/js/totalWorkout.js' type='text/javascript'></script>

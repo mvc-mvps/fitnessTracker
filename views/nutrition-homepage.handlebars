@@ -9,6 +9,10 @@
 
   <h2>Nutrition</h2>
 
+<div class="alert alert-secondary" role="alert">
+  A simple secondary alert—check it out!
+</div>
+
   <a href='/addfood'><button class='btn primary-btn' id='add-food'>Add Food</button></a>
   <table class='table'>
     <thead>
@@ -30,7 +34,7 @@
             scope='row'
           >{{nutritionitem.id}}</th>
           <td>{{nutritionitem.name}}</td>
-          <td>{{nutritionitem.protein}}</td>
+          <td class="proteinData">{{nutritionitem.protein}}</td>
           <td class="calorieData">{{nutritionitem.calories}}</td>
           <td>{{nutritionitem.serving}}</td>
           <td>
