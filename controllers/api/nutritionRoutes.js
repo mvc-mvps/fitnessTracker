@@ -19,22 +19,16 @@ router.get(
   (req, res) => {
     Nutrition.findAll({
       where: {
-          user_id: req.session.user_id
+        user_id: req.session.user_id,
       },
       attributes: ['id', 'name', 'protein', 'calories', 'serving'],
-      // ,
-      // include: [
-      //     {
-      //         model: User,
-      //         attributes: ['username']
-      //     }
-      // ]
     })
       .then((nutritionData) => {
         const nutritionitems = nutritionData.map((nutritionitem) =>
           nutritionitem.get({ plain: true })
         );
-        res.render('nutrition-homepage', { nutritionitems });
+        // res.render('nutrition-homepage', { nutritionitems });
+        res.json(nutritionitems);
       })
       .catch((err) => {
         console.log(err);
