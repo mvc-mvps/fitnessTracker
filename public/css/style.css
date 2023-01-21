@@ -57,3 +57,8 @@ nav {
     background-color: var(--secondary);
 }
 /* End of Homepage */
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+}

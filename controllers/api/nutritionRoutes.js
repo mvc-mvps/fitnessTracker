@@ -27,8 +27,8 @@ router.get(
         const nutritionitems = nutritionData.map((nutritionitem) =>
           nutritionitem.get({ plain: true })
         );
-        // res.render('nutrition-homepage', { nutritionitems });
-        res.json(nutritionitems);
+        res.render('nutrition-homepage', { nutritionitems });
+        // res.json(nutritionitems);
       })
       .catch((err) => {
         console.log(err);

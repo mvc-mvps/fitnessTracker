@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
       const planneritems = plannerData.map((planneritem) =>
         planneritem.get({ plain: true })
       );
-      // res.render('exercise-homepage', { planneritems });
-      res.json(planneritems);
+      res.render('exercise-homepage', { planneritems });
+      // res.json(planneritems);
     })
     .catch((err) => {
       console.log(err);
