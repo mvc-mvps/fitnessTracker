@@ -28,8 +28,8 @@
           <th scope='row' class="idData">{{planneritem.id}}</th>
           <td>{{planneritem.date}}</td>
           <td>{{planneritem.type}}</td>
-          <td>{{planneritem.goal}}</td>
-          <td>{{planneritem.completed}}</td>
+          <td class="goalData">{{planneritem.goal}}</td>
+          <td class="completedData">{{planneritem.completed}}</td>
           <td>
             <a href='/api/planner/updateexercise/{{planneritem.id}}'><button
                 class='btn secondary-btn'
