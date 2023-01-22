@@ -13,7 +13,7 @@ const addFoodFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/api/nutrition');
+            document.location.replace('/nutrition');
         } else {
             alert('Failed to add food.');
         }
@@ -26,6 +26,5 @@ const addFoodFormHandler = async (event) => {
     }
 };
 
-document
-    .querySelector('#submit-food')
-    .addEventListener('submit', addFoodFormHandler);
+const addButton = document.getElementById('add-btn');
+addButton.addEventListener('click', addFoodFormHandler);

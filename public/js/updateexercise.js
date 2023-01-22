@@ -35,29 +35,29 @@
 const updateExerciseFormHandler = async (event) => {
   event.preventDefault();
 
-  const date = document.querySelector('#exercise-date').value.trim();
-  const type = document.querySelector('#exercise-type').value.trim();
   const goal = document.querySelector('#exercise-goal').value.trim();
   const completed = document.querySelector('#exercise-completed').value.trim();
 
   const id = location.pathname.split('/')[4];
 
-  if (date && type && goal) {
+  if (goal && completed) {
     const response = await fetch(`/api/planner/updateexercise/${id}`, {
       method: 'PUT',
-      body: JSON.stringify({ date, type, goal, completed }),
+      body: JSON.stringify({ goal, completed }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/api/planner');
+      document.location.replace('/api/planner/');
       res.json({ message: 'exercise has been updated' });
     } else {
       alert('Failed to update exercise.');
     }
+  } else {
+    alert('Please enter all fields');
   }
 };
 
 const updateExercise = document.getElementById('updateExerciseButton');
 
-updateExercise.addEventListener('submit', updateExerciseFormHandler);
+updateExercise.addEventListener('click', updateExerciseFormHandler);

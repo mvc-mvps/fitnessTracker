@@ -52,8 +52,6 @@ router.post('/add', (req, res) => {
 router.put('/updateexercise/:id', async (req, res) => {
   const plannerData = await Planner.update(
     {
-      type: req.body.type,
-      date: req.body.date,
       goal: req.body.goal,
       completed: req.body.completed,
       user_id: req.session.user_id,
@@ -61,6 +59,7 @@ router.put('/updateexercise/:id', async (req, res) => {
     {
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
     }
 
