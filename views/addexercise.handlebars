@@ -6,7 +6,7 @@
 
 <div class="container-lg p-3">
 
-    <h2>Add Exercise</h2>
+    <h1>Add Exercise</h1>
 
     <form class="row g-3" id="submit-exercise" action="/add" method="POST">
         <div class="col-lg-7 p-3">
@@ -22,12 +22,14 @@
             <input class="form-control" id="exercise-goal" placeholder="Number of minutes/reps (required)" name="goal">
         </div>
         <div class="col-lg-7 p-3">
-            <label for="exercise-completed"><i class="fa-regular fa-square-check"></i>Completed (enter "0" if not started):</label>
-            <input class="form-control" id="exercise-completed" placeholder="Number of minutes/reps (required)" name="completed">
+            <label for="exercise-completed"><i class="fa-regular fa-square-check"></i>Completed (enter "0" if not
+                started):</label>
+            <input class="form-control" id="exercise-completed" placeholder="Number of minutes/reps (required)"
+                name="completed">
         </div>
         <div class="col-lg-7" id="formValidation"></div>
         <div class="col-lg-7 p-3">
-            <a href="exercise-homepage"><button class="btn primary btn">Add</button></a>
+            <a href="/exercise-homepage"><button class="btn primary btn">Add</button></a>
         </div>
     </form>
 </div>

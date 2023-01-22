@@ -35,8 +35,21 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static("images"));
 app.use(routes);
+
+
+// Route to display static src images
+app.get("/static", (req, res) => {
+  res.render("static");
+});
+
+// Route to display dynamic src images
+app.get("/dynamic", (req, res) => {
+  imageList = [];
+  imageList.push({ src: "/public.img.fitlyfe4life-logo.png", name: "logo" });;
+  res.render("dynamic", { imageList: imageList });
+});
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(port, () => console.log(`App listening on port http://localhost:${port}`));
