@@ -17,6 +17,10 @@ const signupFormHandler = async (event) => {
       alert('Failed to sign up.');
     }
   }
+  if (username === "" || password === "") {
+    document.getElementById('formValidation').innerHTML = `
+    <div class="alert alert-danger" role="alert">Enter a username and password.</div>`;
+}
 };
 
 document

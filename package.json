@@ -12,6 +12,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.2.1",
+        "@fortawesome/free-solid-svg-icons": "^6.2.1",
         "axios": "^1.2.2",
         "bcrypt": "^5.0.0",
         "connect-session-sequelize": "^7.0.4",
@@ -19,8 +21,10 @@
         "express": "^4.18.2",
         "express-handlebars": "^5.2.0",
         "express-session": "^1.17.1",
+        "i": "^0.3.7",
         "mysql2": "^2.2.5",
         "node-fetch": "^3.3.0",
+        "npm": "^9.3.1",
         "sequelize": "^6.3.5"
     },
     "devDependencies": {

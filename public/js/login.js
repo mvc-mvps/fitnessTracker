@@ -17,6 +17,10 @@ const loginFormHandler = async (event) => {
       alert('Failed to log in');
     }
   }
+  if (username === "" || password === "") {
+    document.getElementById('formValidation').innerHTML = `
+    <div class="alert alert-danger" role="alert">Enter a username and password.</div>`;
+}
 };
 document
 .querySelector('.login-form')

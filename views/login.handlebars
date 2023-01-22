@@ -1,6 +1,6 @@
-<div class='wrapper'>
-  <h2>Login</h2>
-  <form class='form login-form'>
+<div class="container-lg">
+  <h1>Login</h1>
+  <form class='form login-form p-3'>
     <div class='form-group'>
       <label for='username-login'>Username:</label>
       <input id='username-login' class='form-input' type='text' />
@@ -9,14 +9,16 @@
       <label for='password-login'>Password:</label>
       <input class='form-input' type='password' id='password-login' />
     </div>
-    <div class='form-input'>
+    <div class="col-lg-7" id="formValidation"></div>
+    <div class='form-group'>
+      <button class='btn' type='submit'>Login</button>
     </div>
-    <button class='btn btn-primary' type='submit'>Login</button>
+    <div class='form-group'>
+      <a href='/signup'>
+        <button class='btn' type='button'>New user? Sign up</button>
+      </a>
+    </div>
   </form>
-  <div class='form-group'>
-    <a href='/signup'>
-      <button class='btn btn-primary' type='button'>New user? Sign up</button>
-    </a>
-  </div>
 </div>
+
 <script src='/js/login.js'></script>
