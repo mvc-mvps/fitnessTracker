@@ -77,7 +77,23 @@ router.get('/homepage', async (req, res) => {
 });
 
 router.get('/nutrition', (req, res) => {
-  res.render('nutrition');
+      Nutrition.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+        attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+      })
+        .then((nutritionData) => {
+          const nutritionitems = nutritionData.map((nutritionitem) =>
+            nutritionitem.get({ plain: true })
+          );
+          res.render('nutrition-homepage', { nutritionitems });
+          // res.json(nutritionitems);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+        });
 });
 
 router.get('/exercise-homepage', (req, res) => {
