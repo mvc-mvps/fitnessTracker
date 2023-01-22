@@ -1,21 +1,29 @@
-<a href="/api/planner">
-    <button class="btn" id="home">Home</button>
-</a>
+<nav class="nav">
+  <a class="nav-link" href="/homepage">Home</a>
+  <a class="nav-link" href="/exercise-homepage">Exercise</a>
+  <a class="nav-link" href="/nutrition-homepage">Nutrition</a>
+</nav>
 
-<h2>Update Exercise</h2>
+<div class="container-lg p-3">
 
-<form id="update-exercise" method="PUT">
-    <div class="form-group">
-        <label for="exercise-goal">Goal</label>
-        <input class="form-control" id="exercise-goal" value="{{this.goal}}" placeholder="Number of reps or minutes" name="goal">
+  <h1>Update Exercise</h1>
+
+  <form id="update-exercise" class="p-3" method="PUT">
+    <div class="col-lg-7 p-3">
+      <label for="exercise-goal">Goal</label>
+      <input class="form-control" id="exercise-goal" value="{{this.goal}}" placeholder="Number of reps or minutes"
+        name="goal">
     </div>
-    <div class="form-group">
-        <label for="exercise-completed">Done</label>
-        <input class="form-control" id="exercise-completed" value="{{this.completed}}" placeholder="Number of reps or minutes" name="completed">
+    <div class="col-lg-7 p-3">
+      <label for="exercise-completed">Completed</label>
+      <input class="form-control" id="exercise-completed" value="{{this.completed}}"
+        placeholder="Number of reps or minutes" name="completed">
     </div>
-</form>
-    <div class="form-group">
-        <button class="btn primary btn" id="updateExerciseButton">Update</button>
+    <div class="col-lg-7" id="formValidation"></div>
+    <div class="col-lg-7 p-3">
+      <button class="btn primary btn" id="updateExerciseButton">Update</button>
     </div>
+  </form>
+</div>
 
 <script src='/js/updateexercise.js'></script>

@@ -38,9 +38,9 @@ const goals = () => {
     //   `Almost there! Only ${value} reps/minutes left until you hit your goals`
     // );
   } else if (value < 0) {
-    alert(`You crushed your workout goals with ${value} extra!`);
+    // alert(`You crushed your workout goals with ${value} extra!`);
   } else {
-    alert('Great job! You have completed all of your set goals!');
+    // alert('Great job! You have completed all of your set goals!');
   }
 };
 
@@ -62,12 +62,7 @@ const init = () => {
 
   dateData.forEach((date) => {
     if (date.textContent === today) {
-      document.getElementById('exerciseAlert').innerHTML = `
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Exercise Reminder</strong> You have an exercise planned today.
-            <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-          </div>
-      `;
+      document.getElementById('exerciseAlert').innerHTML = `You have an exercise planned today.`;
     }
   });
 };

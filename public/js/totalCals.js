@@ -17,7 +17,7 @@ const display = () => {
   const totalP = arrayIntP.reduce(function (a, b) {
     return a + b;
   }, 0);
-  if (totalC > 0 || totalP > 0) {
+  if (totalC != "" || totalP != "") {
     document.querySelector(
       '.alert'
     ).innerHTML = `You have logged ${totalC} calories and ${totalP}g of protein, Great Job!`;
