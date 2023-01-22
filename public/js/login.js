@@ -14,7 +14,8 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/homepage');
     } else {
-      alert('Failed to log in');
+      document.getElementById('formValidation').innerHTML = `
+      <div class="alert alert-danger" role="alert">Incorrect username or password. Please sign up if you are a new user.</div>`
     }
   }
   if (username === "" || password === "") {

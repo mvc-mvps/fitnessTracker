@@ -14,7 +14,8 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/login');
     } else {
-      alert('Failed to sign up.');
+      document.getElementById('formValidation').innerHTML = `
+    <div class="alert alert-danger" role="alert">Invalid username or password. Make sure your password is between 8 and 16 characters. If your password is the correct length, please choose a different username.</div>`
     }
   }
   if (username === "" || password === "") {
