@@ -15,9 +15,12 @@ const updateFood = async (event) => {
     })
     if(response.ok) {
       location.replace('/nutrition');
-    } else {
-      alert('something went wrong!');
-    }
+    }     if (protein === "" || calories === "" | serving === "") {
+      document.getElementById('formValidation').innerHTML = `
+  <div class="alert alert-danger" role="alert">
+  You must fill out all required fields on the form.
+  </div>`;
+  }
   
 }
 

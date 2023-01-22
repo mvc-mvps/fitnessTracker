@@ -33,29 +33,33 @@
 // document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
 
 const updateExerciseFormHandler = async (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  const goal = document.querySelector('#exercise-goal').value.trim();
-  const completed = document.querySelector('#exercise-completed').value.trim();
+    const goal = document.querySelector('#exercise-goal').value.trim();
+    const completed = document.querySelector('#exercise-completed').value.trim();
 
-  const id = location.pathname.split('/')[4];
+    const id = location.pathname.split('/')[4];
 
-  if (goal && completed) {
-    const response = await fetch(`/api/planner/updateexercise/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ goal, completed }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    if (goal && completed) {
+        const response = await fetch(`/api/planner/updateexercise/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ goal, completed }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-    if (response.ok) {
-      document.location.replace('/api/planner/');
-      res.json({ message: 'exercise has been updated' });
-    } else {
-      alert('Failed to update exercise.');
+        if (response.ok) {
+            document.location.replace('/api/planner/');
+            res.json({ message: 'exercise has been updated' });
+        } else {
+            alert('Failed to update exercise.');
+        }
     }
-  } else {
-    alert('Please enter all fields');
-  }
+    if (goal === "" || completed === "") {
+        document.getElementById('formValidation').innerHTML = `
+    <div class="alert alert-danger" role="alert">
+    You must fill out all required fields on the form. Enter "0" for completed if you haven't started this exercise yet.
+    </div>`;
+    }
 };
 
 const updateExercise = document.getElementById('updateExerciseButton');
