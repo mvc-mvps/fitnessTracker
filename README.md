@@ -10,27 +10,19 @@ This is something like an all-in-one application. Instead of using one app to fo
 
 ## Table of Contents
 
-- [Frameworks](#frameworks)
+- [Link to video](#link-to-video)
 - [Installation](#installation)
-- [API-Reference](#api-reference)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 
-## Frameworks
+## Link-to-video
 
-
-
-
-
+[https://drive.google.com/file/d/1mTzbNupfPiKzL4JGk1QDpevQ8o3KpTtY/view](https://drive.google.com/file/d/1mTzbNupfPiKzL4JGk1QDpevQ8o3KpTtY/view)
 
 ## Installation
 
 The link below will take you to our application. There you can sign-up and create a login to get started. After logging in you can visit the exercise and nutrition pages to add a specific workout along with the reps and time duration or add a food item to calculate the nutrients from each food item you add.
-
-## API Reference
-
-https://www.nutritionix.com/
 
 ## Usage
 
