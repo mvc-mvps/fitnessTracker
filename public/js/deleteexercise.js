@@ -1,3 +1,4 @@
+//logic to delete exercise
 const deleteExerciseFormHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
@@ -6,13 +7,13 @@ const deleteExerciseFormHandler = async (event) => {
     });
     if (response.ok) {
       document.location.reload();
-      // document.location.replace('/exercise-homepage');
     } else {
       alert('Failed to delete exercise');
     }
   }
 };
 
+//listens at all of the delete buttons on the page
 const deleteExercise = document.querySelectorAll('.delete-exercise');
 
 deleteExercise.forEach((element) => {

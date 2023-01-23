@@ -1,3 +1,4 @@
+//handles the sign up data to create a new user
 const signupFormHandler = async (event) => {
   event.preventDefault();
 

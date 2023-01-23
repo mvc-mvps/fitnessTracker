@@ -1,5 +1,3 @@
-//do the fetch from the API in the nutrition routes controller page
-
 const router = require('express').Router();
 const Nutrition = require('../../models/Nutrition');
 const axios = require('axios');
@@ -8,38 +6,24 @@ const express = require('express');
 const sequelize = require('./../../config/connection');
 
 // get all nutrition items
-router.get(
-  '/',
-  // withAuth
-  (req, res) => {
-    Nutrition.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-      attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+router.get('/', (req, res) => {
+  Nutrition.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+    attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+  })
+    .then((nutritionData) => {
+      const nutritionitems = nutritionData.map((nutritionitem) =>
+        nutritionitem.get({ plain: true })
+      );
+      res.json(nutritionitems);
     })
-      .then((nutritionData) => {
-        const nutritionitems = nutritionData.map((nutritionitem) =>
-          nutritionitem.get({ plain: true })
-        );
-        // res.render('nutrition-homepage', { nutritionitems });
-        res.json(nutritionitems);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-);
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
 
-// router.get('/', (req, res) => {
-//   Nutrition.findAll({
-//     attributes: ['calories'],
-//   }).then((caloriData) => {
-//     const calorieData = caloriData.map((calori) => calori.get({ plain: true }));
-//     res.json(calorieData);
-//   });
-// });
 // create new nutrition item
 router.post('/add', (req, res) => {
   Nutrition.create({
@@ -53,7 +37,6 @@ router.post('/add', (req, res) => {
       res.status(200).json(nutrition);
     })
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -65,72 +48,36 @@ router.get('/findone/:id', (req, res) => {
       user_id: req.session.user_id,
     },
   })
-  .then((output) => {
-    res.status(200).json.toString(output);
-    console.log(output);
-    res.send(output);
-  })
-  .catch((err) => {
-    res.json(err);
-  });
+    .then((output) => {
+      res.status(200).json.toString(output);
+      res.send(output);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
-// router.post('/', async (req, res) => {
-//   console.log('food-input backend: ', req.body.nutritionSearchInput);
-//   axios
-//     .get(
-//       `${requestUrl}${req.body.nutritionSearchInput}${resultParams}${appIdAndKey}`
-//     )
-//     .then((response) => {
-//       // Code for handling the response
-//       console.log('firing');
-//       let data = response.data.hits[0];
-//       res.render('nutrition', (apiData = data));
-//     });
-//   // if the dish is successfully created, the new response will be returned as json
-//   res.status(200).json();
-// });
-
-// router.post('/', async (req, res) => {
-//   try {
-//     const foodData = await Nutrition.create({
-//       // name: req.body.nutritionSearchInput,
-//       name: 'apple',
-//     });
-//     // if the dish is successfully created, the new response will be returned as json
-//     console.log(foodData);
-//     res.status(200).json(foodData);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
-// router.get('/updatefood/:id', (req, res) => {
-//   res.render('updatefood');
-// });
 
 router.put('/updateNutrition/:id', (req, res) => {
-  console.log(req.body.name);  
+  console.log(req.body.name);
   Nutrition.update(
-      {
-        calories: req.body.calories,
-        protein: req.body.protein,
-        serving: req.body.serving,
+    {
+      calories: req.body.calories,
+      protein: req.body.protein,
+      serving: req.body.serving,
+    },
+    {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
       },
-      {
-        where: {
-          id: req.params.id,
-          user_id: req.session.user_id,
-        },
-      }
-    )
-      .then((nutritionItem) => {
-        res.json(nutritionItem);
-        // res.render('nutrition-homepage', { nutritionItem });
-        // console.log(nutritionItem);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
+    }
+  )
+    .then((nutritionItem) => {
+      res.json(nutritionItem);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 router.post('/', async (req, res) => {
@@ -145,17 +92,6 @@ router.post('/', async (req, res) => {
     res.send(nutritionData);
   }
 });
-
-// router.post('/add', async (req, res) => {
-//   try {
-//     console.log(req.body);
-//     const newtritionData = await Nutrition.create(req.body);
-
-//     res.status(200).json(newtritionData);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 router.delete('/deletefood/:id', (req, res) => {
   Nutrition.destroy({

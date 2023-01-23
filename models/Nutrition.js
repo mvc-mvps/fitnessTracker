@@ -13,7 +13,7 @@ Nutrition.init(
     },
     name: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
     },
     calories: {
       type: DataTypes.INTEGER,
@@ -21,17 +21,15 @@ Nutrition.init(
     },
     protein: {
       type: DataTypes.INTEGER,
-      // allowNull: false,
+      allowNull: false,
     },
     carbs: {
       type: DataTypes.INTEGER,
-      // allowNull: false,
     },
     serving: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
     },
-    //Need other variables we want to include
     user_id: {
       type: DataTypes.INTEGER,
       references: {

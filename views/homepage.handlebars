@@ -15,56 +15,38 @@
     >Log Out</a></button>
 </nav>
 
-<div class='card' style='width: 18rem;'>
+<div class='card-homepage'>
   <img src='./img/squat.jpg' class='card-img-top' alt='...' />
   <div class='card-body'>
     <h5 class='card-title'>Daily Motivation</h5>
     <p class='card-text'>“Go the extra mile. It’s never crowded.” -Wayne Dyer</p>
   </div>
 </div>
-
-<table>
+<div class="exercisegraph">
+<table class="charts-css bar multiple stacked show-heading data-spacing-5">
   <thead>
-    <th>id</th>
-    <th>Name</th>
-    <th>Proteins</th>
-    <th>Calories</th>
-    <th>Servings</th>
-  </thead>
-  <tbody>
-    {{#each data1 as |row|}}
-      <tr>
-        <td>{{row.id}}</td>
-        <td>{{row.name}}</td>
-        <td>{{row.protein}}</td>
-        <td>{{row.calories}}</td>
-        <td>{{row.serving}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{!-- <table>
-  <thead>
-    <th>id</th>
     <th>Date</th>
-    <th>Type</th>
     <th>Goal</th>
     <th>Completed</th>
   </thead>
   <tbody>
-    {{#each data2 as |row|}}
+    {{#each data1 as |row|}}
       <tr>
-        <td>{{row.id}}</td>
-        <td>{{row.date}}</td>
-        <td>{{row.type}}</td>
-        <td>{{row.goal}}</td>
-        <td>{{row.completed}}</td>
+        <td style="--size: 0.15">{{row.date}}</td>
+        <td style="--size: {{row.goal}}/{{row.completed}}">Completed: {{row.completed}}</td>
+        <td>Goal: {{row.goal}}</td>
       </tr>
     {{/each}}
   </tbody>
-</table> --}}
-
-{{! <script src="/js/homepage.js"></script> }}
+</table>
+</div>
+<div class="mission-statement">
+  <h3>Mission Statment</h3>
+  <p>FitLyfe was created to help people like you to better understand your daily routines.
+    This is done by giving you an easy space to quickly keep note of your day to day health and wellness goals,
+    as well as give you encouragement along the way.  We hope to give you the tools to achieve your goals. 
+  </p>
+  <div class="fitlyfeteam"><p>~FitLyfe Team 2023~</p></div>  
+</div>
 
 <script src='/js/logout.js' type='text/javascript'></script>

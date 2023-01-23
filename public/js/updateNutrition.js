@@ -1,4 +1,4 @@
-
+//logic to update nutrition data
 const updateFood = async (event) => {
   event.preventDefault();
   

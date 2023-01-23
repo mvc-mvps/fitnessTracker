@@ -1,3 +1,4 @@
+//handles login credentials
 const loginFormHandler = async (event) => {
   event.preventDefault();
 

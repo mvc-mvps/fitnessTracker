@@ -8,23 +8,22 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
   Planner.findAll({
     where: {
-      user_id: req.session.user_id
-  },
+      user_id: req.session.user_id,
+    },
     attributes: ['id', 'date', 'type', 'goal', 'completed'],
   })
     .then((plannerData) => {
       const planneritems = plannerData.map((planneritem) =>
         planneritem.get({ plain: true })
       );
-      // res.render('exercise-homepage', { planneritems });
       res.json(planneritems);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });
 
+// display update exercise with correct id value
 router.get('/updateexercise/:id', (req, res) => {
   res.render('updateexercise');
 });
@@ -42,7 +41,6 @@ router.post('/add', (req, res) => {
       res.status(200).json(planner);
     })
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -62,11 +60,6 @@ router.put('/updateexercise/:id', async (req, res) => {
         user_id: req.session.user_id,
       },
     }
-
-    // if (!plannerData) {
-    //   res.status(404).json({ message: 'No planner item found with this id!' });
-    //   return;
-    // }
   )
     .then((updatedExercise) => {
       res.status(200).json(updatedExercise);
@@ -86,15 +79,5 @@ router.delete('/delete/:id', (req, res) => {
     })
     .catch((err) => res.json(err));
 });
-//     if (!plannerData) {
-//       res.status(404).json({ message: 'No planner item found with this id!' });
-//       return;
-//     }
-
-//     res.status(200).json(plannerData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;
