@@ -33,6 +33,7 @@ const addExerciseFormHandler = async (event) => {
   }
 };
 
+//event listener for add button
 document
   .querySelector('#submit-exercise')
   .addEventListener('submit', addExerciseFormHandler);

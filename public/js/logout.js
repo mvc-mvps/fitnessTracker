@@ -1,3 +1,4 @@
+//handles logout and reroutes to login page
 async function logout() {
   const response = await fetch('/api/user/logout', {
     method: 'POST',

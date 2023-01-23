@@ -27,5 +27,6 @@ const addFoodFormHandler = async (event) => {
   }
 };
 
+//event listener for add button
 const addButton = document.getElementById('add-btn');
 addButton.addEventListener('click', addFoodFormHandler);

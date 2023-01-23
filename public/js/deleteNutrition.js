@@ -13,6 +13,7 @@ const deleteNutritionHandler = async (event) => {
   }
 };
 
+//listens at all of the delete buttons on the page 
 const deleteButton = document.querySelectorAll('.delete-food');
 
 deleteButton.forEach((element) => {

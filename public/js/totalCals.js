@@ -1,3 +1,4 @@
+// function that takes in all of the calories and protein and returns an alert with the totals
 const display = () => {
   const arrayC = [];
   const arrayP = [];
@@ -21,7 +22,6 @@ const display = () => {
     document.querySelector(
       '.alert'
     ).innerHTML = `You have logged ${totalC} calories and ${totalP}g of protein, Great Job!`;
-    // alert(`You have logged ${total} calories, Great Job!`);
   }
 };
 

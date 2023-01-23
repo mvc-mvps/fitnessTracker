@@ -1,4 +1,4 @@
-//logic for handling nutrition data for responsive layout
+//logic for handling exercise data for responsive layout
 const display = () => {
   const idData = document.querySelectorAll('.idData');
   const display = idData.length.toString();
@@ -33,19 +33,13 @@ const goals = () => {
     return a + b;
   }, 0);
 
+  // fills in the progress bar based on the percentage of completed goals
   let value = Math.floor((completedTotal / goalTotal) * 100);
 
   if (value > 0) {
     document
       .querySelector('.progress-bar')
       .setAttribute('style', `width: ${value}%`);
-    // alert(
-    //   `Almost there! Only ${value} reps/minutes left until you hit your goals`
-    // );
-  } else if (value < 0) {
-    // alert(`You crushed your workout goals with ${value} extra!`);
-  } else {
-    // alert('Great job! You have completed all of your set goals!');
   }
 };
 
@@ -62,6 +56,7 @@ var yyyy = today.getFullYear();
 today = mm + '/' + dd + '/' + yyyy;
 currentDate.innerHTML = today;
 
+// takes data from front end to determine when logged workouts are scheduled
 const init = () => {
   const dateData = document.querySelectorAll('.dateData');
   if (dateData.length > 0) {
@@ -73,7 +68,7 @@ const init = () => {
       } else {
         document.getElementById(
           'exerciseAlert'
-        ).innerHTML = `You have have completed all planned exercises.`;
+        ).innerHTML = `You have have completed all planned exercises for today.`;
       }
     });
   }

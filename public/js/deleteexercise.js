@@ -13,6 +13,7 @@ const deleteExerciseFormHandler = async (event) => {
   }
 };
 
+//listens at all of the delete buttons on the page
 const deleteExercise = document.querySelectorAll('.delete-exercise');
 
 deleteExercise.forEach((element) => {
