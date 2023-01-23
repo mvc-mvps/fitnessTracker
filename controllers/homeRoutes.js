@@ -23,17 +23,17 @@ router.get('/signup', (req, res) => {
 
 //renders homepage with nutrition data
 router.get('/homepage', async (req, res) => {
-  await Nutrition.findAll({
+  await Planner.findAll({
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+    attributes: ['date', 'goal', 'completed'],
   })
-    .then((nutritionData) => {
-      const nutritionitems = nutritionData.map((nutritionitem) =>
-        nutritionitem.get({ plain: true })
+    .then((workoutData) => {
+      const exerciseitems = workoutData.map((exerciseitem) =>
+        exerciseitem.get({ plain: true })
       );
-      res.render('homepage', { data1: nutritionitems });
+      res.render('homepage', { data1: exerciseitems });
     })
     .catch((err) => {
       res.status(500).json(err);
