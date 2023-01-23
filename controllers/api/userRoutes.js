@@ -4,7 +4,9 @@ const { User } = require('../../models');
 //route to login user
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({
+      where: { username: req.body.username },
+    });
 
     if (!userData) {
       res
@@ -21,18 +23,16 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
-    
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
-
 });
 
 // route to create new user
@@ -58,7 +58,7 @@ router.post('/logout', (req, res) => {
       res.status(204).end();
     });
   } else {
-      res.status(404).end();
+    res.status(404).end();
   }
 });
 

@@ -3,26 +3,9 @@ const { request } = require('express');
 const { User, Planner, Nutrition } = require('../models');
 const withAuth = require('../utils/auth');
 
+// renders login page
 router.get('/', (req, res) => {
   res.render('login');
-});
-
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
-
-    const users = userData.map((user) => user.get({ plain: true }));
-
-    res.render('/api/planner', {
-      users,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 router.get('/login', (req, res) => {
@@ -33,10 +16,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//renders the signup page
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+//renders homepage with nutrition data
 router.get('/homepage', async (req, res) => {
   await Nutrition.findAll({
     where: {
@@ -48,34 +33,14 @@ router.get('/homepage', async (req, res) => {
       const nutritionitems = nutritionData.map((nutritionitem) =>
         nutritionitem.get({ plain: true })
       );
-      // console.log(data);
       res.render('homepage', { data1: nutritionitems });
-      // res.json(nutritionitems);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
-
-  // await Planner.findAll({
-  //   where: {
-  //     user_id: req.session.user_id
-  // },
-  //   attributes: ['id', 'date', 'type', 'goal', 'completed'],
-  // })
-  //   .then((plannerData) => {
-  //     const planneritems = plannerData.map((planneritem) =>
-  //       planneritem.get({ plain: true })
-  //     );
-  //     res.send({ data2: planneritems });
-  //     // res.json(planneritems);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     res.status(500).json(err);
-  //   });
 });
 
+//renders nutrition-homepage with all of the nutrition data on it
 router.get('/nutrition-homepage', (req, res) => {
   Nutrition.findAll({
     where: {
@@ -88,14 +53,13 @@ router.get('/nutrition-homepage', (req, res) => {
         nutritionitem.get({ plain: true })
       );
       res.render('nutrition-homepage', { nutritionitems });
-      // res.json(nutritionitems);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });
 
+//renders exercise-homepage with all of the exercise data on it
 router.get('/exercise-homepage', (req, res) => {
   Planner.findAll({
     where: {
@@ -108,10 +72,8 @@ router.get('/exercise-homepage', (req, res) => {
         planneritem.get({ plain: true })
       );
       res.render('exercise-homepage', { planneritems });
-      // res.json(planneritems);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });

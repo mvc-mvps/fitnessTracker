@@ -1,3 +1,4 @@
+//logic for handling nutrition data for responsive layout
 const display = () => {
   const idData = document.querySelectorAll('.idData');
   const display = idData.length.toString();

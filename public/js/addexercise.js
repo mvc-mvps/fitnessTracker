@@ -1,3 +1,4 @@
+//logic to add exercise
 const addExerciseFormHandler = async (event) => {
   event.preventDefault();
 
