@@ -14,7 +14,7 @@ const updateFood = async (event) => {
       headers: ({ 'Content-Type': 'application/json' }),
     })
     if(response.ok) {
-      location.replace('/nutrition');
+      location.replace('/nutrition-homepage');
     }     if (protein === "" || calories === "" | serving === "") {
       document.getElementById('formValidation').innerHTML = `
   <div class="alert alert-danger" role="alert">

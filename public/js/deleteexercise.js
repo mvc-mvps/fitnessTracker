@@ -5,7 +5,8 @@ const deleteExerciseFormHandler = async (event) => {
       method: 'DELETE',
     });
     if (response.ok) {
-      document.location.replace('/api/planner');
+      document.location.reload();
+      // document.location.replace('/exercise-homepage');
     } else {
       alert('Failed to delete exercise');
     }

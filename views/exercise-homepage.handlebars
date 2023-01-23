@@ -1,7 +1,7 @@
 <nav class="nav">
-  <a class="nav-link" href="/homepage">Home</a>
-  <a class="nav-link" href="/nutrition-homepage">Nutrition</a>
-  <a class="nav-link" href='/login' id='logout' type='submit'>Log Out</a>
+  <button class="btn"><a class="nav-link" href="/homepage">Home</a></button>
+  <button class="btn"><a class="nav-link" href="/nutrition-homepage">Nutrition</a></button>
+  <button class="btn"><a class="nav-link" href='/login' id='logout' type='submit'>Log Out</a></button>
 </nav>
 
 <div class="container-lg p-3">
@@ -38,7 +38,7 @@
       <p class="card-text completedData">Completed: {{planneritem.completed}} reps/minutes</p>
       <p class="d-none idData">{{planneritem.id}}</p>
       <a href="href='/api/planner/updateexercise/{{planneritem.id}}" class="card-link">Update</a>
-      <a data-id="{{planneritem.id}}" class="card-link">Delete</a>
+      <a data-id="{{planneritem.id}}" class="card-link delete-exercise">Delete</a>
     </div>
   </div>
   {{/each}}

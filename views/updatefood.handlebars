@@ -1,33 +1,52 @@
-<nav class="nav">
-    <a class="nav-link" href="/homepage">Home</a>
-    <a class="nav-link" href="/exercise-homepage">Exercise</a>
-    <a class="nav-link" href="/nutrition-homepage">Nutrition</a>
+<nav class='nav'>
+  <button class='btn'><a class='nav-link' href='/homepage'>Home</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/exercise-homepage'
+    >Exercise</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/nutrition-homepage'
+    >Nutrition</a></button>
 </nav>
 
-<div class="container-lg p-3">
+<div class='container-lg p-3'>
 
-    <h1>Update Food</h1>
+  <h1>Update Food</h1>
 
-    <form id='submit-food' class="p-3" method="PUT">
-        <div class="col-lg-7 p-3">
-            <label for='food-protein'>Protein (g):</label>
-            <input class='form-control' id='food-protein' placeholder='Grams of protein (required)' name='protein' />
-        </div>
-        <div class="col-lg-7 p-3">
-            <label for='food-calories'>Calories:</label>
-            <input class='form-control' id='food-calories' placeholder='Number of calories (required)'
-                name='calories' />
-        </div>
-        <div class="col-lg-7 p-3">
-            <label for='food-servings'>Servings:</label>
-            <input class='form-control' id='food-servings' placeholder='Number of servings (required)'
-                name='servings' />
-        </div>
-        <div class="col-lg-7" id="formValidation"></div>
-        <div class="col-lg-7 p-3">
-            <button class='btn primary btn' id='updatefoodbtn'>Update</button>
-        </div>
-    </form>
+  <form id='submit-food' class='p-3' method='PUT'>
+    <div class='col-lg-7 p-3'>
+      <label for='food-protein'>Protein (g):</label>
+      <input
+        class='form-control'
+        id='food-protein'
+        placeholder='Grams of protein (required)'
+        name='protein'
+      />
+    </div>
+    <div class='col-lg-7 p-3'>
+      <label for='food-calories'>Calories:</label>
+      <input
+        class='form-control'
+        id='food-calories'
+        placeholder='Number of calories (required)'
+        name='calories'
+      />
+    </div>
+    <div class='col-lg-7 p-3'>
+      <label for='food-servings'>Servings:</label>
+      <input
+        class='form-control'
+        id='food-servings'
+        placeholder='Number of servings (required)'
+        name='servings'
+      />
+    </div>
+    <div class='col-lg-7' id='formValidation'></div>
+    <div class='col-lg-7 p-3'>
+      <button class='btn primary btn' id='updatefoodbtn'>Update</button>
+    </div>
+  </form>
 </div>
 
 <script src='/js/updateNutrition.js'></script>

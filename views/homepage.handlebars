@@ -1,15 +1,25 @@
-<a href="/nutrition">
-    <button class="btnH" id="home">Nutrition</button>
-</a>
-<a href="/api/planner">
-    <button class="btnH" id="home">Planner</button>
-</a>
+<nav class='nav'>
+  <button class='btn'><a
+      class='nav-link'
+      href='/nutrition-homepage'
+    >Nutrition</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/exercise-homepage'
+    >Exercise</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/login'
+      id='logout'
+      type='submit'
+    >Log Out</a></button>
+</nav>
 
-<div class="card" style="width: 18rem;">
-  <img src="./img/squat.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Daily Motivation</h5>
-    <p class="card-text">“Go the extra mile. It’s never crowded.” -Wayne Dyer</p>
+<div class='card' style='width: 18rem;'>
+  <img src='./img/squat.jpg' class='card-img-top' alt='...' />
+  <div class='card-body'>
+    <h5 class='card-title'>Daily Motivation</h5>
+    <p class='card-text'>“Go the extra mile. It’s never crowded.” -Wayne Dyer</p>
   </div>
 </div>
 
@@ -55,4 +65,6 @@
   </tbody>
 </table> --}}
 
-{{!-- <script src="/js/homepage.js"></script> --}}
+{{! <script src="/js/homepage.js"></script> }}
+
+<script src='/js/logout.js' type='text/javascript'></script>

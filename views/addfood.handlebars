@@ -1,41 +1,74 @@
-<nav class="nav">
-    <a class="nav-link" href="/homepage">Home</a>
-    <a class="nav-link" href="/exercise-homepage">Exercise</a>
-    <a class="nav-link" href="/nutrition-homepage">Nutrition</a>
+<nav class='nav'>
+  <button class='btn'><a class='nav-link' href='/homepage'>Home</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/exercise-homepage'
+    >Exercise</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/nutrition-homepage'
+    >Nutrition</a></button>
 </nav>
 
-<div class="container-lg p-3">
+<div class='container-lg p-3'>
 
-    <h1>Add Food</h1>
+  <h1>Add Food</h1>
 
-    <form class="row g-3" id="submit-food" action="/add" method="POST">
-        <div class="col-lg-7 p-3">
-            <label for="food-name" class="form-label"><i class="fa-regular fa-carrot"></i>Food Name:</label>
-            <input class="form-control" id="food-name" placeholder="Name (required)" name="name">
-        </div>
-        <div class="col-lg-7 p-3">
-            <label for="food-servings" class="form-label"><i class="fa-solid fa-plate-utensils"></i>Servings:</label>
-            <input class="form-control" id="food-servings" placeholder="Number of servings (required)" name="servings">
-        </div>
-        <div class="col-lg-7 p-3">
-            <label for="food-protein" class="form-label"><i class="fa-solid fa-dna"></i>Protein (g):</label>
-            <input class="form-control" id="food-protein" placeholder="Grams of protein (required)" name="protein">
-        </div>
-        <div class="col-lg-7 p-3">
-            <label for="food-calories" class="form-label"><i class="fa-solid fa-fire-flame-curved"></i>Calories:</label>
-            <input class="form-control" id="food-calories" placeholder="Number of calories (required)" name="calories">
-        </div>
-        <div class="col-lg-7" id="formValidation"></div>
-        <div class="col-lg-7 p-3">
-            <button class="btn primary btn" id="add-btn">Add</button>
-        </div>
-    </form>
+  <form class='row g-3' id='submit-food' action='/add' method='POST'>
+    <div class='col-lg-7 p-3'>
+      <label for='food-name' class='form-label'><i
+          class='fa-regular fa-carrot'
+        ></i>Food Name:</label>
+      <input
+        class='form-control'
+        id='food-name'
+        placeholder='Name (required)'
+        name='name'
+      />
+    </div>
+    <div class='col-lg-7 p-3'>
+      <label for='food-servings' class='form-label'><i
+          class='fa-solid fa-plate-utensils'
+        ></i>Servings:</label>
+      <input
+        class='form-control'
+        id='food-servings'
+        placeholder='Number of servings (required)'
+        name='servings'
+      />
+    </div>
+    <div class='col-lg-7 p-3'>
+      <label for='food-protein' class='form-label'><i
+          class='fa-solid fa-dna'
+        ></i>Protein (g):</label>
+      <input
+        class='form-control'
+        id='food-protein'
+        placeholder='Grams of protein (required)'
+        name='protein'
+      />
+    </div>
+    <div class='col-lg-7 p-3'>
+      <label for='food-calories' class='form-label'><i
+          class='fa-solid fa-fire-flame-curved'
+        ></i>Calories:</label>
+      <input
+        class='form-control'
+        id='food-calories'
+        placeholder='Number of calories (required)'
+        name='calories'
+      />
+    </div>
+    <div class='col-lg-7' id='formValidation'></div>
+    <div class='col-lg-7 p-3'>
+      <button class='btn primary btn' id='add-btn'>Add</button>
+    </div>
+  </form>
 </div>
 
 <script src='/js/addfood.js'></script>
 
-
-{{!--
+{{!
 <h2>Add Food</h2>
 
 <form class="form newFoodForm">
@@ -47,4 +80,4 @@
 </form>
 <button id="newFoodSubmit" type="button">Submit</button>
 
-<script src='/js/nutrition.js'></script> --}}
+<script src='/js/nutrition.js'></script> }}

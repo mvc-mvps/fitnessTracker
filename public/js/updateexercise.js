@@ -48,7 +48,7 @@ const updateExerciseFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/api/planner/');
+            document.location.replace('/exercise-homepage');
             res.json({ message: 'exercise has been updated' });
         } else {
             alert('Failed to update exercise.');

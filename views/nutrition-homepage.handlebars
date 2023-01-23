@@ -1,34 +1,53 @@
-<nav class="nav">
-    <a class="nav-link" href="/homepage">Home</a>
-    <a class="nav-link" href="/exercise-homepage">Exercise</a>
-    <a class="nav-link" href='/login' id='logout' type='submit'>Log Out</a>
+<nav class='nav'>
+  <button class='btn'><a class='nav-link' href='/homepage'>Home</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/exercise-homepage'
+    >Exercise</a></button>
+  <button class='btn'><a
+      class='nav-link'
+      href='/login'
+      id='logout'
+      type='submit'
+    >Log Out</a></button>
 </nav>
 
-<div class="container-lg p-3">
+<div class='container-lg p-3'>
 
-    <h1>Nutrition</h1>
+  <h1>Nutrition</h1>
 
-    <div class="alert alert-secondary" role="alert">Click add food to get started.</div>
+  <div class='alert alert-secondary' role='alert'>Click add food to get started.</div>
 
-    <div class="p-3">
-        <a href='/addfood'><button class='p-3 btn primary-btn' id='add-food'>Add Food</button></a>
+  <div class='p-3'>
+    <a href='/addfood'><button class='p-3 btn primary-btn' id='add-food'>Add
+        Food</button></a>
+  </div>
+
+  {{#each nutritionitems as |nutritionitem|}}
+    <div class='card p-3' style='width: 18rem;'>
+      <div class='card-body'>
+        <h3 class='nameData card-title'>{{nutritionitem.name}}</h3>
+        <h4 class='servingData card-subtitle mb-2 text-muted'>Servings:
+          {{nutritionitem.serving}}</h4>
+        <p class='card-text calorieData'>Calories:
+          {{nutritionitem.calories}}</p>
+        <p class='card-text proteinData'>Protein: {{nutritionitem.protein}}g</p>
+        <p class='hidden nutritionId'>{{nutritionitem.id}}</p>
+        <a
+          id='update-food'
+          href='/updatefood/{{nutritionitem.id}}'
+          class='card-link'
+        >Update</a>
+        <a
+          id='delete-food'
+          data-id='{{nutritionitem.id}}'
+          class='card-link delete-food'
+        >Delete</a>
+      </div>
     </div>
-
-    {{#each nutritionitems as |nutritionitem|}}
-    <div class="card p-3" style="width: 18rem;">
-        <div class="card-body">
-            <h3 class="nameData card-title">{{nutritionitem.name}}</h3>
-            <h4 class="servingData card-subtitle mb-2 text-muted">Servings: {{nutritionitem.serving}}</h4>
-            <p class="card-text calorieData">Calories: {{nutritionitem.calories}}</p>
-            <p class="card-text proteinData">Protein: {{nutritionitem.protein}}g</p>
-            <p class="hidden nutritionId">{{nutritionitem.id}}</p>
-            <a id='update-food' href="/updatefood/{{nutritionitem.id}}" class="card-link">Update</a>
-            <a id='delete-food' data-id="{{nutritionitem.id}}" class="card-link delete-food">Delete</a>
-        </div>
-    </div>
-    {{/each}}
+  {{/each}}
 </div>
 
 <script src='/js/deleteNutrition.js' type='text/javascript'></script>
 <script src='/js/logout.js' type='text/javascript'></script>
-<script src="/js/totalCals.js" type="text/javascript"></script>
+<script src='/js/totalCals.js' type='text/javascript'></script>

@@ -14,7 +14,7 @@ const addExerciseFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/api/planner');
+        document.location.replace('/exercise-homepage');
       } else {
         alert('Failed to add exercise.');
       }

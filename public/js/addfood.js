@@ -13,7 +13,7 @@ const addFoodFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/nutrition');
+            document.location.replace('/nutrition-homepage');
         } else {
             alert('Failed to add food.');
         }
