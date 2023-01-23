@@ -29,9 +29,9 @@
         <h3 class='nameData card-title'>{{nutritionitem.name}}</h3>
         <h4 class='servingData card-subtitle mb-2 text-muted'>Servings:
           {{nutritionitem.serving}}</h4>
-        <p class='card-text calorieData'>Calories:
+        <p class='card-text calorieData' id="{{nutritionitem.calories}}">Calories:
           {{nutritionitem.calories}}</p>
-        <p class='card-text proteinData'>Protein: {{nutritionitem.protein}}g</p>
+        <p class='card-text proteinData' id="{{nutritionitem.protein}}">Protein: {{nutritionitem.protein}}g</p>
         <p class='hidden nutritionId'>{{nutritionitem.id}}</p>
         <a
           id='update-food'
