@@ -120,7 +120,7 @@ router.get('/addexercise', (req, res) => {
   res.render('addexercise');
 });
 
-router.get('/updateexercise', (req, res) => {
+router.get('/updateexercise/:id', (req, res) => {
   res.render('updateexercise');
 });
 
