@@ -4,10 +4,10 @@ const display = () => {
   const calorieData = document.querySelectorAll('.calorieData');
   const proteinData = document.querySelectorAll('.proteinData');
   for (i = 0; i < calorieData.length; i++) {
-    arrayC.push(calorieData[i].innerHTML);
+    arrayC.push(calorieData[i].id);
   }
   for (i = 0; i < proteinData.length; i++) {
-    arrayP.push(proteinData[i].innerHTML);
+    arrayP.push(proteinData[i].id);
   }
   const arrayIntC = arrayC.map(Number);
   const totalC = arrayIntC.reduce(function (a, b) {
