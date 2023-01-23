@@ -34,10 +34,10 @@
     <div class="card-body">
       <h4 class="dateData card-title">{{planneritem.date}}</h4>
       <h5 class="typeData card-subtitle mb-2">{{planneritem.type}}</h5>
-      <p class="card-text goalData">Goal: {{planneritem.goal}} reps/minutes</p>
-      <p class="card-text completedData">Completed: {{planneritem.completed}} reps/minutes</p>
+      <p class="card-text goalData" id="{{planneritem.goal}}">Goal: {{planneritem.goal}} reps/minutes</p>
+      <p class="card-text completedData" id="{{planneritem.completed}}">Completed: {{planneritem.completed}} reps/minutes</p>
       <p class="d-none idData">{{planneritem.id}}</p>
-      <a href="href='/api/planner/updateexercise/{{planneritem.id}}" class="card-link">Update</a>
+      <a href="/updateexercise/{{planneritem.id}}" class="card-link">Update</a>
       <a data-id="{{planneritem.id}}" class="card-link delete-exercise">Delete</a>
     </div>
   </div>

@@ -37,8 +37,7 @@ const updateExerciseFormHandler = async (event) => {
 
     const goal = document.querySelector('#exercise-goal').value.trim();
     const completed = document.querySelector('#exercise-completed').value.trim();
-
-    const id = location.pathname.split('/')[4];
+    const id = location.pathname.split('/')[2];
 
     if (goal && completed) {
         const response = await fetch(`/api/planner/updateexercise/${id}`, {

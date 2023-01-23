@@ -15,21 +15,25 @@ const goals = () => {
   const completedArray = [];
   const goalData = document.querySelectorAll('.goalData');
   const completedData = document.querySelectorAll('.completedData');
+
   for (i = 0; i < goalData.length; i++) {
-    goalArray.push(goalData[i].innerHTML);
+    goalArray.push(goalData[i].id);
   }
   for (i = 0; i < completedData.length; i++) {
-    completedArray.push(completedData[i].innerHTML);
+    completedArray.push(completedData[i].id);
   }
   const goalArrayInt = goalArray.map(Number);
   const completedArrayInt = completedArray.map(Number);
+
   const goalTotal = goalArrayInt.reduce(function (a, b) {
     return a + b;
   }, 0);
   const completedTotal = completedArrayInt.reduce(function (a, b) {
     return a + b;
   }, 0);
-  let value = goalTotal - completedTotal;
+
+  let value = Math.floor((completedTotal / goalTotal) * 100);
+
   if (value > 0) {
     document
       .querySelector('.progress-bar')
@@ -59,12 +63,19 @@ currentDate.innerHTML = today;
 
 const init = () => {
   const dateData = document.querySelectorAll('.dateData');
-
-  dateData.forEach((date) => {
-    if (date.textContent === today) {
-      document.getElementById('exerciseAlert').innerHTML = `You have an exercise planned today.`;
-    }
-  });
+  if (dateData.length > 0) {
+    dateData.forEach((date) => {
+      if (date.textContent === today) {
+        document.getElementById(
+          'exerciseAlert'
+        ).innerHTML = `You have an exercise planned today.`;
+      } else {
+        document.getElementById(
+          'exerciseAlert'
+        ).innerHTML = `You have have completed all planned exercises.`;
+      }
+    });
+  }
 };
 
 init();
