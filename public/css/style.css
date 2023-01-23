@@ -39,6 +39,11 @@ nav {
   color: var(--light);
 }
 
+a {
+  color: var(--light);
+  text-decoration: none;
+}
+
 /* Homepage */
 .btnH {
   background: var(--qautrinary);

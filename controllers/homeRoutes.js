@@ -57,51 +57,63 @@ router.get('/homepage', async (req, res) => {
       res.status(500).json(err);
     });
 
-    // await Planner.findAll({
-    //   where: {
-    //     user_id: req.session.user_id
-    // },
-    //   attributes: ['id', 'date', 'type', 'goal', 'completed'],
-    // })
-    //   .then((plannerData) => {
-    //     const planneritems = plannerData.map((planneritem) =>
-    //       planneritem.get({ plain: true })
-    //     );
-    //     res.send({ data2: planneritems });
-    //     // res.json(planneritems);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    //   });
-});
-
-router.get('/nutrition', (req, res) => {
-      Nutrition.findAll({
-        where: {
-          user_id: req.session.user_id,
-        },
-        attributes: ['id', 'name', 'protein', 'calories', 'serving'],
-      })
-        .then((nutritionData) => {
-          const nutritionitems = nutritionData.map((nutritionitem) =>
-            nutritionitem.get({ plain: true })
-          );
-          res.render('nutrition-homepage', { nutritionitems });
-          // res.json(nutritionitems);
-        })
-        .catch((err) => {
-          console.log(err);
-          res.status(500).json(err);
-        });
-});
-
-router.get('/exercise-homepage', (req, res) => {
-  res.render('exercise-homepage');
+  // await Planner.findAll({
+  //   where: {
+  //     user_id: req.session.user_id
+  // },
+  //   attributes: ['id', 'date', 'type', 'goal', 'completed'],
+  // })
+  //   .then((plannerData) => {
+  //     const planneritems = plannerData.map((planneritem) =>
+  //       planneritem.get({ plain: true })
+  //     );
+  //     res.send({ data2: planneritems });
+  //     // res.json(planneritems);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).json(err);
+  //   });
 });
 
 router.get('/nutrition-homepage', (req, res) => {
-  res.render('nutrition-homepage');
+  Nutrition.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+    attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+  })
+    .then((nutritionData) => {
+      const nutritionitems = nutritionData.map((nutritionitem) =>
+        nutritionitem.get({ plain: true })
+      );
+      res.render('nutrition-homepage', { nutritionitems });
+      // res.json(nutritionitems);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/exercise-homepage', (req, res) => {
+  Planner.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+    attributes: ['id', 'date', 'type', 'goal', 'completed'],
+  })
+    .then((plannerData) => {
+      const planneritems = plannerData.map((planneritem) =>
+        planneritem.get({ plain: true })
+      );
+      res.render('exercise-homepage', { planneritems });
+      // res.json(planneritems);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.get('/addexercise', (req, res) => {

@@ -8,29 +8,29 @@ const express = require('express');
 const sequelize = require('./../../config/connection');
 
 // get all nutrition items
-// router.get(
-//   '/',
-//   // withAuth
-//   (req, res) => {
-//     Nutrition.findAll({
-//       where: {
-//         user_id: req.session.user_id,
-//       },
-//       attributes: ['id', 'name', 'protein', 'calories', 'serving'],
-//     })
-//       .then((nutritionData) => {
-//         const nutritionitems = nutritionData.map((nutritionitem) =>
-//           nutritionitem.get({ plain: true })
-//         );
-//         res.render('nutrition-homepage', { nutritionitems });
-//         // res.json(nutritionitems);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   }
-// );
+router.get(
+  '/',
+  // withAuth
+  (req, res) => {
+    Nutrition.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      attributes: ['id', 'name', 'protein', 'calories', 'serving'],
+    })
+      .then((nutritionData) => {
+        const nutritionitems = nutritionData.map((nutritionitem) =>
+          nutritionitem.get({ plain: true })
+        );
+        // res.render('nutrition-homepage', { nutritionitems });
+        res.json(nutritionitems);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+);
 
 // router.get('/', (req, res) => {
 //   Nutrition.findAll({
