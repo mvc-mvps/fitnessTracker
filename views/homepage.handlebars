@@ -32,9 +32,9 @@
   <tbody>
     {{#each data1 as |row|}}
       <tr>
-        <td style="--size: 0.15">{{row.date}}</td>
-        <td style="--size: {{row.goal}}/{{row.completed}}">Completed: {{row.completed}}</td>
-        <td>Goal: {{row.goal}}</td>
+        <td style="--size: 0.15; --color: black">{{row.date}}</td>
+        <td style="--size: {{row.goal}}/{{row.completed}}; --color: #67bc00">Completed: {{row.completed}}</td>
+        <td style="--color: #808080">Goal: {{row.goal}}</td>
       </tr>
     {{/each}}
   </tbody>
