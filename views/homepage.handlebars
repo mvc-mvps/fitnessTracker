@@ -22,24 +22,6 @@
     <p class='card-text'>“Go the extra mile. It’s never crowded.” -Wayne Dyer</p>
   </div>
 </div>
-<div class="exercisegraph">
-<table class="charts-css bar multiple stacked show-heading data-spacing-5">
-  <thead>
-    <th>Date</th>
-    <th>Goal</th>
-    <th>Completed</th>
-  </thead>
-  <tbody>
-    {{#each data1 as |row|}}
-      <tr>
-        <td style="--size: 0.15; --color: black">{{row.date}}</td>
-        <td style="--size: {{row.completed}}/{{row.goal}}; --color: #67bc00">Completed: {{row.completed}}</td>
-        <td style="--color: #808080">Goal: {{row.goal}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-</div>
 <div class="mission-statement">
   <h3>Mission Statment</h3>
   <p>FitLyfe was created to help people like you to better understand your daily routines.
